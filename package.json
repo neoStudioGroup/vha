@@ -1,0 +1,19 @@
+{
+  "name": "vha",
+  "version": "0.1.0",
+  "description": "Vue hybrid app build tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neoStudioGroup/vha.git"
+  },
+  "author": "neoStudioGroup",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neoStudioGroup/vha/issues"
+  },
+  "homepage": "https://github.com/neoStudioGroup/vha#readme"
+}

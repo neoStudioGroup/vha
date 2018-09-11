@@ -1,8 +1,9 @@
 {
   "name": "vha",
-  "version": "0.1.0",
-  "description": "Vue hybrid app build tool",
+  "version": "0.0.1",
+  "description": "Vue hybrid app Development.",
   "main": "index.js",
+  "bin": { "vha": "./bin/vha.js" },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

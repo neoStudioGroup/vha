@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Vue hybrid app Development.",
   "main": "index.js",
-  "bin": { "vha": "./bin/vha.js" },
+  "bin": {
+    "vha": "./bin/vha.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/neoStudioGroup/vha/issues"
   },
-  "homepage": "https://github.com/neoStudioGroup/vha#readme"
+  "homepage": "https://github.com/neoStudioGroup/vha#readme",
+  "dependencies": {
+    "iconv-lite": "^0.4.24",
+    "socket.io": "^2.1.1"
+  }
 }

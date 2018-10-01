@@ -1,5 +1,5 @@
 <style lang="stylus">
-._PG-components
+._PG-version
 
   // UI组件-名称
   ._UI-name
@@ -8,11 +8,17 @@
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="_PG-components">
+  <div class="_PG-version">
 
     <!-- UI组件-名称 -->
     <div class="_UI-name">
-      33333
+      检查cordova
+      检查vha 安装正确和版本
+      
+      检查java命令是否可以运行
+      
+      查看debug签名文件信息
+      和签名SHA1值等等
     </div>
 
   </div>
@@ -20,7 +26,7 @@
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
 export default {
-  name: 'PGcomponents',
+  name: 'PGversion',
   data() {
     //动态数据
     return {

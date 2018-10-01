@@ -1,5 +1,5 @@
 <style lang="stylus">
-._UI-Home
+._PG-index
 
   // UI组件-名称
   .c_UI-name
@@ -8,14 +8,14 @@
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="_UI-Home">
+  <div class="_PG-index">
     111
   </div>
 </template>
 --------------------------------------------------------------------------------
 <script type="text/ecmascript-6">
 export default {
-  name: 'UI-Home',
+  name: 'PGindex',
   beforeCreate() {
     //实例创建之前
   },

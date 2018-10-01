@@ -1,29 +1,35 @@
 <style lang="stylus">
-.p_UI-command
+._PG-command
   height 100%
   padding 20px
   pre
     margin 20px 0
+    padding 20px
     color #c0c0c0
     background-color #000
-    max-height 80vh
+    // max-height 80vh
     border-radius 5px
-    line-height 100%
+    line-height 120%
+    white-space pre-wrap
+    word-wrap break-word
+    
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-command">
-    <p>连接状态: {{this.$store.state.socket_connect}}</p>
+  <div class="_PG-command">
     
-    <a-input-search placeholder="ipconfig" @search="clickButton" enterButton="运行" size="large" />
+    <p>连接状态: {{$store.state.socket_connect}}</p>
+    
+    <a-input-search v-model="$store.state.command_value" @search="clickButton" enterButton="运行" size="large" />
 
-    <pre>{{this.$store.state.command_code}}</pre>
+    <pre>{{$store.state.command_code}}</pre>
+    
   </div>
 </template>
 --------------------------------------------------------------------------------
 <script type="text/ecmascript-6">
 export default {
-  name: 'p_UI-command',
+  name: 'PGcommand',
   beforeCreate() {
     //实例创建之前
   },
@@ -44,7 +50,10 @@ export default {
   methods: {
     //方法 - 每次进入页面创建
     clickButton: function(value){
-      this.$socket.emit('CLIENT_CMD', value)
+      this.$store.commit('runCmd', value)
+    },
+    aaa: function(){
+      this.$socket.emit('CLIENT_EXIT_CMD')
     }
   },
   watch: {

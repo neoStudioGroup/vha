@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import index from './pages/index.vue'
 import command from './pages/command.vue'
 import project from './pages/project.vue'
-  import directory from './pages/project/directory.vue'
   import cmd from './pages/project/cmd.vue'
   import plugin from './pages/project/plugin.vue'
   import info from './pages/project/info.vue'
@@ -35,12 +34,7 @@ export default new Router({
       path: '/project',
       name: 'project',
       component: project,
-      redirect: '/project/cmd',
       children: [
-        {
-          path: 'directory',
-          component: directory
-        },
         {
           path: 'cmd',
           component: cmd

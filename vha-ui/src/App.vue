@@ -22,6 +22,7 @@
       padding 6px 12px
       display inline-block
       font-size 14px
+      transition all 200ms
       span
         margin-left 6px
       &:hover
@@ -49,21 +50,35 @@
           <a-icon type="mobile" />
           API文档
         </a-menu-item>
+        <!-- <a-menu-item key="tutorial" style="float:right">
+          <a-icon type="mobile" />
+          官方教程
+        </a-menu-item>
+        <a-menu-item key="compmarket" style="float:right">
+          <a-icon type="mobile" />
+          组件商城
+        </a-menu-item>
+        <a-menu-item key="templatemarket" style="float:right">
+          <a-icon type="mobile" />
+          模板商城
+        </a-menu-item> -->
       </a-menu>
     </div>
     <div class="ui-content _flexYauto">
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </div>
     <div class="ui-footer">
       <div>
         <a-icon type="home" />
       </div>
-      <div @click="showDrawer">
+      <div @click="visible=true">
         <a-icon type="setting" />
       </div>
       <div style="cursor:auto">
         <a-icon type="folder" /> 
-        <span>F:\Project\vue\hybridApp</span>
+        <span>{{$store.state.config.projectPath}}</span>
       </div>
       <div>
         <a-icon type="info-circle-o" />
@@ -76,58 +91,13 @@
       </div>
     </div>
     
-    <a-drawer
-      width=400
-      placement="left"
-      :closable="false"
-      @close="onClose"
-      :visible="visible"
-      style="height: calc(100% - 55px);overflow: 'auto';paddingBottom: 53px"
-    >
-      <a-divider orientation="left">系统配置</a-divider>
-      
-      <h6 :style="{marginTop:'40px'}">项目目录：</h6>
-      <a-input placeholder="C:\" v-model="this.$store.state.projectPath"/>
-      <h6 :style="{marginTop:'10px', marginLeft:'10px', color:'#bbb'}">项目的管理目录</h6>
-      
-      <h6 :style="{marginTop:'40px'}">打开浏览器路径：</h6>
-      <a-input placeholder="C:\"/>
-      <h6 :style="{marginTop:'10px', marginLeft:'10px', color:'#bbb'}">指定用于浏览打开项目的浏览器</h6>
-      
-      <h6 :style="{marginTop:'40px'}">打开程序路径</h6>
-      <a-input placeholder="C:\"/>
-      <h6 :style="{marginTop:'10px', marginLeft:'10px', color:'#bbb'}">指定用于打开项目的应用程序(如webstrom、vscode、sublime)</h6>
-      
-      <div
-        :style="{
-          position: 'absolute',
-          bottom: 0,
-          width: '100%',
-          borderTop: '1px solid #e8e8e8',
-          padding: '10px 16px',
-          textAlign: 'right',
-          left: 0,
-          background: '#fff',
-          borderRadius: '0 0 4px 4px',
-        }"
-      >
-        <a-button
-          style="margin-right:8px"
-          @click="onClose"
-        >
-          取消
-        </a-button>
-        <a-button @click="onClose" type="primary">确定</a-button>
-      </div>
-    </a-drawer>
-    
-    
-    
+    <UI-stting :visible='visible' @onClose='onClose'></UI-stting>
     
   </div>
 </template>
 --------------------------------------------------------------------------------
 <script type="text/ecmascript-6">
+import UIStting from "./components/stting"
 export default {
   name: 'App',
   beforeCreate() {
@@ -140,49 +110,62 @@ export default {
     //动态数据
     return {
       current: ['project'],
-      visible: false,
+      visible: false
     }
   },
   components: {
     //组件 - 引入或定义
+    UIStting
   },
   computed: {
     //计算 - 缓存结果,变动时执行
   },
   sockets:{
     connect: function(){
-      console.log('SERVER_CONNECT')
+      console.log('服务器 - 连接成功', 'SERVER_CONNECT')
       this.$store.state.socket_connect = true
-      this.$socket.emit('CLIENT_GET_projectPath')
+      this.$socket.emit('CLIENT_GET_INFO')
     },
     disconnect: function(){
-      console.log('SERVER_DISCONNECT')
+      console.log('服务器 - 断开连接', 'SERVER_DISCONNECT')
       this.$store.state.socket_connect = false
       this.$message.error('与Socket服务器断开连接')
     },
     SERVER_CMD_DATA: function(val){
-      console.log('SERVER_CMD_DATA')
+      console.log('服务器 - 返回CMD数据', 'SERVER_CMD_DATA')
       this.$store.state.command_code += val
     },
     SERVER_CMD_END: function(){
-      console.log("SERVER_CMD_END")
+      console.log('服务器 - CMD结束事件', 'SERVER_CMD_END')
+      setTimeout(() => {
+        this.$store.state.command_code += "\n"
+        this.$store.state.command_code += this.$store.state.config.projectPath + "\\" + this.$store.state.UIprojectsStatus + ">"
+      }, 50)
     },
-    SERVER_SND_projectPath: function(val){
-      console.log("SERVER_SND_projectPath", val)
-      this.$store.state.projectPath = val
+    SERVER_SND_CONFIG: function(val){
+      console.log('服务器 - 返回配置信息', 'SERVER_SND_CONFIG', val)
+      this.$store.state.config = val
+    },
+    SERVER_SND_PROJECT: function(val){
+      console.log('服务器 - 返回项目信息', 'SERVER_SND_PROJECT', val)
+      this.$store.state.project = val
+    },
+    SERVER_SND_XML: function(val){
+      console.log('服务器 - 返回XML文件信息', 'SERVER_SND_XML', val)
+      this.$store.state.xml = val
+      
+      this.$store.state.xml.widget.description = this.$store.state.xml.widget.description.replace(/(^\s*)|(\s*$)/g, "")
+    },
+    SERVER_SND_PLUGINS: function(val){
+      console.log('服务器 - 返回插件信息', 'SERVER_SND_PLUGINS', val)
+      this.$store.state.plugins = val
     }
   },
   methods: {
     //方法 - 每次进入页面创建
     click: function (item, key, keyPath) {
-      console.log(item.key, key, keyPath)
+      // console.log(item.key, key, keyPath)
       this.$router.push("/" + item.key)
-    },
-    showDrawer: function () {
-      this.visible = true
-    },
-    onClose: function () {
-      this.visible = false
     },
     info: function () {
       const h = this.$createElement
@@ -195,6 +178,9 @@ export default {
         ]),
         onOk() {},
       });
+    },
+    onClose: function () {
+      this.visible = false
     }
   },
   watch: {

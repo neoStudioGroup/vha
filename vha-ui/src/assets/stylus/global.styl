@@ -49,6 +49,7 @@
 ._wn {white-space: nowrap}
 /*盒子*/
 ._df {display: flex}
+._dif {display: inline-flex}
 /*内联盒子*/
 ._dif {display: inline-flex}
 /*垂直方向*/
@@ -213,6 +214,39 @@
 
 
 
+._UI-table
+  margin 10px 0 16px
+  // width 900px
+  &>:first-child
+    padding-right 10px
+    text-align right
+  &>:last-child
+    padding-left 10px
+  h2
+    // color #777
+  .ui-t-note
+    color #999
+    font-size 12px
+    margin 0
+  .ui-t-noteB
+    color #FF0000
+    font-size 12px
+    margin 0
+  canvas
+    margin 0 auto
+    background-color #bbb
+    border 1px solid #aaa
+.ui-t_title
+  margin-top 60px
+  margin-bottom 30px
+  div
+    border-bottom: 3px solid #ddd
+  &>:first-child
+    border none
+  &>:last-child
+    border none
+  &:first-child
+    margin-top 0
 
 
 /*清除浮动*/

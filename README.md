@@ -4,6 +4,16 @@ Vue hybrid app 构建工具
 VueCli3.0 + Vue Router + Vux + Axios + Stylu + vha-components + vha-native(Cordova)
 
 
+待完成
+  
+  创建项目
+  
+  服务端重构
+  
+  启动屏幕图标生成
+  
+
+
 ```shell
 npm install vha -g
 ```
@@ -11,6 +21,7 @@ npm install vha -g
 ```
 vha ui
 vha create
+vha resources
 
 vha run serve
 vha run build

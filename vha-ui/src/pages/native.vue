@@ -1,34 +1,26 @@
 <style lang="stylus">
-.p_UI-native
+._PG-native
 
   // UI组件-名称
-  .p_UI-name
+  ._UI-name
     background-color red
 
 </style>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <a-layout class="p_UI-native">
-    <a-layout-content>
-      
-      <!-- UI组件-名称 -->
-      <div class="p_UI-name">
-        4444
-      </div>
+  <div class="_PG-native">
 
-    </a-layout-content>
-  </a-layout>
+    <!-- UI组件-名称 -->
+    <div class="_UI-name">
+      4444444
+    </div>
+
+  </div>
 </template>
---------------------------------------------------------------------------------
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
 export default {
-  name: 'p_UI-native',
-  beforeCreate() {
-    //实例创建之前
-  },
-  props: {
-    //父组件参数
-  },
+  name: 'PGnative',
   data() {
     //动态数据
     return {
@@ -37,17 +29,11 @@ export default {
   components: {
     //组件 - 引入或定义
   },
-  computed: {
-    //计算 - 缓存结果,变动时执行
-  },
   methods: {
-    //方法 - 每次进入页面创建
+    //方法 - 进入页面创建
   },
   watch: {
-    //观察 - 数据或方法
-  },
-  created() {
-    //实例创建完成后
+    //观察 - 数据或方法变动
   },
   mounted() {
     //挂载实例后 - this.el存在
@@ -55,8 +41,5 @@ export default {
   beforeDestroy() {
     //销毁前 - 实例仍然完全可用
   },
-  destroyed() {
-    //销毁后
-  }
 }
 </script>

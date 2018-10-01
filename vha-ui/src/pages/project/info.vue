@@ -1,109 +1,62 @@
 <style lang="stylus">
-.p_UI-info
+.index_PG-info
   height 100%
-  >.ui-content
+  >._UI-content
     padding 20px
-    .UI-lists
-      td
-        height 40px
-      td:first-child
-        padding-right 10px
-        text-align right
-      h2
-        width 100%
-        /* margin-right 50px */
-        padding-bottom 10px
-        margin-bottom 10px
-        color #777
-        border-bottom 3px solid #ddd
-      ._noteB
-        margin-top 8px
-        color #999
-        font-size 12px
+    padding-top 40px
 
 </style>
 --------------------------------------------------------------------------------
 <template>
-  <div class="p_UI-info _df _fdc">
-    <div class="ui-content _flexYauto">
+  <div class="index_PG-info _df _fdc">
+    <div class="_UI-content _flexYauto">
+      
+      <a-row class="_UI-table ui-t_title" type="flex" justify="space-around" align="middle">
+        <a-col :span="1"></a-col>
+        <a-col :span="5"><h2>项目信息</h2></a-col>
+        <a-col :span="18"></a-col>
+      </a-row>
 
-      <table class="UI-lists" border="0">
-        <tr>
-          <th style="width: 100px;padding: 2px;"></th>
-          <th></th>
-        </tr>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <h2>项目信息</h2>
-          </td>
-        </tr>
-        <!-- ========== --> 
-        <tr>
-          <td>
-            名称：
-          </td>
-          <td>
-            <a-input placeholder="large size" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <p class="_noteB">输入中文后程序会将文件自动转为UTF8编码</p>
-          </td>
-        </tr>
-        <!-- ========== --> 
-        <tr>
-          <td>
-            版本：
-          </td>
-          <td>
-            <a-input placeholder="large size" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <p class="_noteB">项目的版本 显示在应用管理中</p>
-          </td>
-        </tr>
-        <!-- ========== --> 
-        <tr>
-          <td>
-            ID：
-          </td>
-          <td>
-            <a-input placeholder="large size" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <p class="_noteB">文件夹的标识 要符合com.xxxx.xxxx</p>
-          </td>
-        </tr>
-        <!-- ========== --> 
-        <tr>
-          <td>
-            描述：
-          </td>
-          <td>
-            <a-input placeholder="large size" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-          </td>
-          <td>
-            <p class="_noteB">项目的描述 显示在应用管理中</p>
-          </td>
-        </tr>
-        
+      <a-row class="_UI-table" type="flex" justify="space-around" align="middle">
+        <a-col :span="1">名称：</a-col>
+        <a-col :span="5"><a-input v-model="xml.name.value" /></a-col>
+        <a-col :span="18"></a-col>
+      </a-row>
+      
+      <a-row class="_UI-table" type="flex" justify="space-around" align="middle">
+        <a-col :span="1">版本：</a-col>
+        <a-col :span="5"><a-input v-model="xml.version.value" /></a-col>
+        <a-col :span="18"></a-col>
+      </a-row>
+      <a-row class="_UI-table" type="flex" justify="space-around" align="middle">
+        <a-col :span="1"></a-col>
+        <a-col :span="5"><p class="ui-t-note">项目的版本 显示在应用管理中</p></a-col>
+        <a-col :span="18"></a-col>
+      </a-row>
+
+      <a-row class="_UI-table" type="flex" justify="space-around" align="middle">
+        <a-col :span="1">ID：</a-col>
+        <a-col :span="5"><a-input v-model="xml.id.value" /></a-col>
+        <a-col :span="18"></a-col>
+      </a-row>
+      <a-row class="_UI-table" type="flex" justify="space-around" align="middle">
+        <a-col :span="1"></a-col>
+        <a-col :span="5"><p class="ui-t-note">文件夹的标识 要符合com.xxxx.xxxx</p></a-col>
+        <a-col :span="18"></a-col>
+      </a-row>
+      
+      <a-row class="_UI-table" type="flex" justify="space-around" align="middle">
+        <a-col :span="1">描述：</a-col>
+        <a-col :span="5"><a-input v-model="xml.description.value" /></a-col>
+        <a-col :span="18"></a-col>
+      </a-row>
+      <a-row class="_UI-table" type="flex" justify="space-around" align="middle">
+        <a-col :span="1"></a-col>
+        <a-col :span="5"><p class="ui-t-note">项目的描述 显示在应用管理中</p></a-col>
+        <a-col :span="18"></a-col>
+      </a-row>
+
+<!--         
         <tr>
           <td>
           </td>
@@ -111,7 +64,6 @@
             <h2 style="margin-top: 20px;">包信息</h2>
           </td>
         </tr>
-        <!-- ========== --> 
         <tr>
           <td>
             包名称：
@@ -127,7 +79,6 @@
             <p class="_noteB">APK包的名称 非项目名</p>
           </td>
         </tr>
-        <!-- ========== --> 
         <tr>
           <td>
             包版本：
@@ -143,7 +94,6 @@
             <p class="_noteB">APK包的版本 非项目版本</p>
           </td>
         </tr>
-        <!-- ========== --> 
         <tr>
           <td>
             包描述：
@@ -158,20 +108,19 @@
           <td>
             <p class="_noteB">APK包的描述信息 非项目描述</p>
           </td>
-        </tr>
-      </table>
+        </tr> -->
 
     </div>
-    <div class="ui-footer">
-      <UIselect></UIselect>
+    <div class="_UI-footer">
+      <UI-select :buttons="['默认', '保存']" :callback="buttonCallback"></UI-select>
     </div>
   </div>
 </template>
 --------------------------------------------------------------------------------
 <script type="text/ecmascript-6">
-import UIselect from "../../components/_UI-select"
+import UISelect from "../../components/select"
 export default {
-  name: 'p_UI-info',
+  name: 'indexPGinfo',
   beforeCreate() {
     //实例创建之前
   },
@@ -181,26 +130,71 @@ export default {
   data() {
     //动态数据
     return {
+      xml: {
+        name: {
+          startMark: '<name>',
+          endMark: '</name>',
+          value: '',
+        },
+        version: {
+          startMark: '" version="',
+          endMark: '" xmlns="',
+          value: '',
+        },
+        id: {
+          startMark: 'widget id="',
+          endMark: '" version="',
+          value: '',
+        },
+        description: {
+          startMark: '<description>',
+          endMark: '</description>',
+          value: '',
+        }
+      }
     }
   },
   components: {
     //组件 - 引入或定义
-    UIselect
+    UISelect
   },
   computed: {
     //计算 - 缓存结果,变动时执行
   },
   methods: {
     //方法 - 每次进入页面创建
+    buttonCallback: function (index) {
+      switch (index) {
+        case 0: {
+          this.dataInit()
+        } break
+        case 1: {
+          this.$socket.emit('CLIENT_SET_XML', this.xml)
+        } break
+      }
+    },
+    dataInit: function () {
+      this.xml.name.value = this.$store.state.xml.widget.name
+      this.xml.version.value = this.$store.state.xml.widget.$.version
+      this.xml.id.value = this.$store.state.xml.widget.$.id
+      this.xml.description.value = this.$store.state.xml.widget.description
+    }
   },
   watch: {
     //观察 - 数据或方法
+    '$store.state.xml': function () {
+      this.dataInit()
+    }
   },
   created() {
     //实例创建完成后
   },
   mounted() {
     //挂载实例后 - this.el存在
+  },
+  activated() {
+    //keep-alive组件激活时
+    this.dataInit()
   },
   beforeDestroy() {
     //销毁前 - 实例仍然完全可用

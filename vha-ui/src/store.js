@@ -8,7 +8,12 @@ export default new Vuex.Store({
     socket_connect: false,
     command_value: 'ipconfig',
     command_code: '请选择一个项目',
-    config: {},
+    config: {
+      "servePort": "",
+      "choose": "",
+      "projectPath": "",
+      "openSoftware": ""
+    },
     project: {},
     xml: {},
     plugins: {},

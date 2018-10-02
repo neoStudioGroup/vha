@@ -88,7 +88,7 @@
         <div 
           class="ui-p-item"
           :class="$store.state.UIprojectsStatus === project.name ? 'ui-p-active' : ''"
-          v-for="project in $store.state.project.Projects"
+          v-for="project in $store.state.project"
           :key="project.index"
           @dblclick="changePro(project.name)"
         >
@@ -157,7 +157,7 @@ export default {
   watch: {
     //观察 - 数据或方法
     '$store.state.config': function () {
-      this.changePro(this.$store.state.config.choose)
+      // this.changePro(this.$store.state.config.choose)
     }
   },
   created() {

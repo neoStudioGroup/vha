@@ -124,7 +124,8 @@ export default {
     connect: function(){
       console.log('服务器 - 连接成功', 'SERVER_CONNECT')
       this.$store.state.socket_connect = true
-      this.$socket.emit('CLIENT_GET_INFO')
+      this.$socket.emit('CLIENT_GET_CONFIG')
+      this.$socket.emit('CLIENT_GET_PROJECT')
     },
     disconnect: function(){
       console.log('服务器 - 断开连接', 'SERVER_DISCONNECT')
@@ -144,10 +145,14 @@ export default {
     },
     SERVER_SND_CONFIG: function(val){
       console.log('服务器 - 返回配置信息', 'SERVER_SND_CONFIG', val)
+      if (!val)
+        return
       this.$store.state.config = val
     },
     SERVER_SND_PROJECT: function(val){
       console.log('服务器 - 返回项目信息', 'SERVER_SND_PROJECT', val)
+      if (!val)
+        return
       this.$store.state.project = val
     },
     SERVER_SND_XML: function(val){

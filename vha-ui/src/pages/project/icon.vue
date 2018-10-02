@@ -314,8 +314,8 @@ export default {
           this.$store.commit("runCmd", "start " + $store.state.config.projectPath + "\\" + $store.state.UIprojectsStatus + "\\resources")
         } break
         case 1: {
-          this.CLIENT_GEN_ICON('\\resources\\android\\icon', '.index_PG-icon .ui-t-android canvas')
-          this.CLIENT_GEN_ICON('\\resources\\ios\\icon', '.index_PG-icon .ui-t-ios canvas')
+          this.CLIENT_GEN_ICON('\\resources\\android_b\\icon', '.index_PG-icon .ui-t-android canvas')
+          this.CLIENT_GEN_ICON('\\resources\\ios_b\\icon', '.index_PG-icon .ui-t-ios canvas')
         } break
       }
     },

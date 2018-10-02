@@ -8,7 +8,9 @@ VueCli3.0 + Vue Router + Vux + Axios + Stylu + vha-components + vha-native(Cordo
   
   创建项目
   
-  服务端重构
+  页面重构
+  
+  增加遮罩层
   
   启动屏幕图标生成
   

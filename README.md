@@ -4,16 +4,6 @@ Vue hybrid app 构建工具
 VueCli3.0 + Vue Router + Vux + Axios + Stylu + vha-components + vha-native(Cordova)
 
 
-待完成
-  
-  创建项目
-  
-  页面重构
-  
-  增加遮罩层
-  
-  启动屏幕图标生成
-  
 
 
 ```shell

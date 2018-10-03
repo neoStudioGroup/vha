@@ -20,7 +20,7 @@
     
     <p>连接状态: {{$store.state.socket_connect}}</p>
     
-    <a-input-search v-model="$store.state.command_value" @search="clickButton" enterButton="运行" size="large" />
+    <a-input-search v-model="$store.state.command_value" @search="onButton" enterButton="运行" size="large" />
 
     <pre>{{$store.state.command_code}}</pre>
     
@@ -49,11 +49,8 @@ export default {
   },
   methods: {
     //方法 - 每次进入页面创建
-    clickButton: function(value){
+    onButton: function(value){
       this.$store.commit('runCmd', value)
-    },
-    aaa: function(){
-      this.$socket.emit('CLIENT_EXIT_CMD')
     }
   },
   watch: {

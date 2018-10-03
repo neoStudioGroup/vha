@@ -187,6 +187,12 @@ export default {
           document.querySelector('.index_PG-keystore .ui-f-input').click()
         } break
         case 1: {
+          if (!this.keyConfig.keyStorepass || !this.keyConfig.keyconStorepass) {
+            this.$error({
+              title: '错误！',
+              content: '口令不能为空',
+            })
+          }
           if (this.keyConfig.keyStorepass != this.keyConfig.keyconStorepass) {
             this.$error({
               title: '错误！',
@@ -234,7 +240,7 @@ export default {
       }
     },
     dataInit: function () {
-      this.configPath = this.$store.state.config.projectPath + "\\" + this.$store.state.UIprojectsStatus + '\\platforms\\android\\app\\build\\outputs\\apk'      
+      this.configPath = this.$store.state.config.projectPath + "\\" + this.$store.state.config.choose + '\\platforms\\android\\app\\build\\outputs\\apk'      
     }
   },
   watch: {

@@ -3,8 +3,8 @@
 
 async function run(obj) {
   if(obj[0] === 'ui'){
-    await require('../lib/init.js').reloding()
-    await require('../lib/ui')
+    // require('../lib/func.js').reloding()
+    require('../lib/ui.js')
   }else if(obj[0] === '-v'){
     console.log('version is 1.0.0')
   }else if(obj[0] === '-h'){

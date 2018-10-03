@@ -1,9 +1,9 @@
 <style lang="stylus">
-._PG-components
+// ._PG-components
 
   // UI组件-名称
-  ._UI-name
-    background-color red
+  // ._UI-name
+    // background-color red
 
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -12,7 +12,7 @@
 
     <!-- UI组件-名称 -->
     <div class="_UI-name">
-      33333
+      coming soon...
     </div>
 
   </div>

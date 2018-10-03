@@ -72,7 +72,7 @@
       </a-radio-group>
       
       <h6 :style="{marginTop:'40px'}">项目名称：</h6>
-      <a-input placeholder="my-app"/>
+      <a-input placeholder="my-app" v-model="name"/>
       
       <div
         :style="{
@@ -93,7 +93,7 @@
         >
           取消
         </a-button>
-        <a-button @click="onClose()" type="primary">创建</a-button>
+        <a-button @click="onCreate()" type="primary">创建</a-button>
       </div>
     </a-drawer>
 
@@ -118,13 +118,37 @@ export default {
         display: 'block',
         height: '30px',
         lineHeight: '30px',
-      }
+      },
+      name: ''
     }
   },
   methods: {
     //方法 - 进入页面创建
     onClose: function () {
       this.$emit('onClose')
+    },
+    onCreate: function () {
+      if (!this.name) {
+        this.$error({
+          title: '错误！',
+          content: '名称不能为空！',
+        })
+        return
+      }
+      
+      if (/.*[\u4e00-\u9fa5]+.*$/.test(this.name)) { 
+        this.$error({
+          title: '错误！',
+          content: '名称不能含有汉字！',
+        })
+      } else {
+        console.log(this.name)
+        //创建
+        
+        this.name = ''
+        this.$emit('onClose')
+      }
+      
     },
     onChange: function () {
       console.log('radio checked', e.target.value)

@@ -94,6 +94,13 @@ export default {
   methods: {
     //方法 - 每次进入页面创建
     buttonCallback: function () {
+      if (!this.keyStorepass) {
+        this.$error({
+          title: '错误！',
+          content: '口令不能为空',
+        })
+      }
+      
       if (this.keyPass === '') {
         this.keyPass = this.keyStorepass
       }
@@ -122,8 +129,8 @@ export default {
       }
     },
     dataInit: function () {
-      this.keyPath = this.$store.state.config.projectPath + "\\" + this.$store.state.UIprojectsStatus + '\\platforms\\android\\app\\build\\outputs\\apk\\my.keystore'
-      this.apkPath = this.$store.state.config.projectPath + "\\" + this.$store.state.UIprojectsStatus + '\\platforms\\android\\app\\build\\outputs\\apk\\release\\app-release-unsigned.apk'     
+      this.keyPath = this.$store.state.config.projectPath + "\\" + this.$store.state.config.choose + '\\platforms\\android\\app\\build\\outputs\\apk\\my.keystore'
+      this.apkPath = this.$store.state.config.projectPath + "\\" + this.$store.state.config.choose + '\\platforms\\android\\app\\build\\outputs\\apk\\release\\app-release-unsigned.apk'     
     }
   },
   watch: {

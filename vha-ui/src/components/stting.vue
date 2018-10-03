@@ -41,7 +41,7 @@
         }"
       >
         <a-button style="margin-right:8px" @click="onClose">取消</a-button>
-        <a-button @click="onOk" type="primary">确定</a-button>
+        <a-button @click="onOk" type="primary">保存</a-button>
       </div>
     </a-drawer>
 
@@ -74,7 +74,11 @@ export default {
       this.$store.state.config.openSoftware = this.$store.state.config.openSoftware.replace(/\//,'//')
       
       this.$socket.emit('CLIENT_SET_CONFIG', this.$store.state.config)
-      this.$socket.emit('CLIENT_GET_PROJECT')
+      setTimeout(() => {
+        this.$socket.emit('CLIENT_GET_PROJECT')//可能修改了路径, 重新获取项目子目录
+        this.$socket.emit('CLIENT_GET_XML')//读取XML信息
+        this.$socket.emit('CLIENT_GET_PLUGINS')//读取PLUGINS信息
+      }, 50)
       this.$emit('onClose')
     }
   },

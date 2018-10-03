@@ -213,7 +213,7 @@
 	
 
 
-
+// 公共UI组件 - 表格
 ._UI-table
   margin 10px 0 16px
   // width 900px
@@ -247,6 +247,37 @@
     border none
   &:first-child
     margin-top 0
+
+
+
+
+// 公共UI组件 - 遮罩
+._UI-mask
+  position absolute
+  width 100%
+  height 100%
+  display flex
+  background-color rgba(0,0,0,0.3)
+  z-index 10
+  .ui-m-box
+    margin auto
+    padding 20px
+    width 400px
+    border-radius 10px
+    background-color #fff
+    box-shadow: 0 0 15px rgba(0,0,0,0.4)
+    p
+      margin 10px 0
+      text-align center
+    .anticon
+      margin 20px auto
+      display block
+      font-size 24px
+    .ant-btn
+      margin 0 auto
+      display block
+
+
 
 
 /*清除浮动*/

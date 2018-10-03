@@ -27,7 +27,7 @@
         <!-- <li class="_buttonB">用自建服务器打开</li> -->
         <li
           class="_buttonB" 
-          @click='$store.commit("runCmd", "\"" + $store.state.config.openSoftware + "\" \"" + $store.state.config.projectPath + "\\" + $store.state.UIprojectsStatus + "\"")'
+          @click='$store.commit("runCmd", "\"" + $store.state.config.openSoftware + "\" \"" + $store.state.config.projectPath + "\\" + $store.state.config.choose + "\"")'
         >
           在应用程序打开
         </li>
@@ -38,6 +38,7 @@
       <p class="_noteA">添加：</p>
       
       <ul class="_ulbtn">
+        <!-- <li class="_buttonB" @click='$store.commit("runCmd", "ping baidu.com -t")'>测试</li> -->
         <li class="_buttonB" @click='$store.commit("runCmd", "cordova platform add android")'>添加Android平台</li>
         <li class="_buttonB" @click='$store.commit("runCmd", "cordova platform add ios")'>添加ios平台</li>
         <li class="_buttonB" @click='$store.commit("runCmd", "cordova platform add borwser")'>添加browser平台</li>
@@ -61,11 +62,11 @@
       <p class="_noteA">打开：</p>
       
       <ul class="_ulbtn">
-        <li class="_buttonB" @click='$store.commit("runCmd", "start \"" + $store.state.config.projectPath + "\\" + $store.state.UIprojectsStatus + "\"")'>打开CMD</li>
-        <li class="_buttonB" @click='$store.commit("runCmd", "start " + $store.state.config.projectPath + "\\" + $store.state.UIprojectsStatus)'>打开项目文件夹</li>
-        <li class="_buttonB"  @click='$store.commit("runCmd", "start " + $store.state.config.projectPath + "\\" + $store.state.UIprojectsStatus + "\\platforms\\android\\app\\build\\outputs\\apk")'>打开Apk文件夹</li>
-        <li class="_buttonB"  @click='$store.commit("runCmd", "start " + $store.state.config.projectPath + "\\" + $store.state.UIprojectsStatus + "\\plugins")'>打开插件文件夹</li>
-        <li class="_buttonB"  @click='$store.commit("runCmd", "start " + $store.state.config.projectPath + "\\" + $store.state.UIprojectsStatus + "\\resources")'>打开资源文件夹</li>
+        <li class="_buttonB" @click='$store.commit("runCmd", "start \"" + $store.state.config.projectPath + "\\" + $store.state.config.choose + "\"")'>打开CMD</li>
+        <li class="_buttonB" @click='$store.commit("runCmd", "start " + $store.state.config.projectPath + "\\" + $store.state.config.choose)'>打开项目文件夹</li>
+        <li class="_buttonB"  @click='$store.commit("runCmd", "start " + $store.state.config.projectPath + "\\" + $store.state.config.choose + "\\platforms\\android\\app\\build\\outputs\\apk")'>打开Apk文件夹</li>
+        <li class="_buttonB"  @click='$store.commit("runCmd", "start " + $store.state.config.projectPath + "\\" + $store.state.config.choose + "\\plugins")'>打开插件文件夹</li>
+        <li class="_buttonB"  @click='$store.commit("runCmd", "start " + $store.state.config.projectPath + "\\" + $store.state.config.choose + "\\resources")'>打开资源文件夹</li>
       </ul>
       
       <div class="_clear"></div>

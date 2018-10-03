@@ -10,6 +10,8 @@
     z-index 10
     >.ant-menu
       line-height 61px
+  >.ui-content
+    position relative
   >.ui-footer
     display flex
     padding 0
@@ -32,8 +34,15 @@
 --------------------------------------------------------------------------------
 <template>
   <div id="app" class="_df _fdc">
+    
+    <div class="_UI-mask" style="z-index:11" v-if="!$store.state.socket_connect">
+      <div class="ui-m-box">
+        <p>未连接服务器</p>
+      </div>
+    </div>
+    
     <div class="ui-header">
-      <a-menu v-model="current" mode="horizontal" @click="click">
+      <a-menu v-model="current" mode="horizontal" @click="onClick">
         <a-menu-item key="command">
           <a-icon type="code" />
           终端
@@ -76,17 +85,15 @@
       <div @click="visible=true">
         <a-icon type="setting" />
       </div>
-      <div style="cursor:auto">
+      <div class="_ownRowHide" style="max-width:300px;cursor:auto">
         <a-icon type="folder" /> 
-        <span>{{$store.state.config.projectPath}}</span>
+        <span>{{$store.state.config.projectPath + '\\' + $store.state.config.choose}}</span>
       </div>
-      <div>
+      <div style="flex:1">
         <a-icon type="info-circle-o" />
-        <span>提示</span>
+        <span>日志</span>
       </div>
-      
-      
-      <div style="margin-left:auto" @click="info">
+      <div style="margin-left:auto" @click="onInfo">
         <span>v0.0.1</span>
       </div>
     </div>
@@ -126,6 +133,14 @@ export default {
       this.$store.state.socket_connect = true
       this.$socket.emit('CLIENT_GET_CONFIG')
       this.$socket.emit('CLIENT_GET_PROJECT')
+      
+      //100毫秒后请求资源信息
+      setTimeout(() => {
+        if (this.$store.state.config.choose) {
+          this.$socket.emit('CLIENT_GET_XML')//读取XML信息
+          this.$socket.emit('CLIENT_GET_PLUGINS')//读取PLUGINS信息
+        }
+      }, 100)
     },
     disconnect: function(){
       console.log('服务器 - 断开连接', 'SERVER_DISCONNECT')
@@ -139,8 +154,9 @@ export default {
     SERVER_CMD_END: function(){
       console.log('服务器 - CMD结束事件', 'SERVER_CMD_END')
       setTimeout(() => {
+        this.$store.state.command_state = false
         this.$store.state.command_code += "\n"
-        this.$store.state.command_code += this.$store.state.config.projectPath + "\\" + this.$store.state.UIprojectsStatus + ">"
+        this.$store.state.command_code += this.$store.state.config.projectPath + "\\" + this.$store.state.config.choose + ">"
       }, 50)
     },
     SERVER_SND_CONFIG: function(val){
@@ -157,22 +173,25 @@ export default {
     },
     SERVER_SND_XML: function(val){
       console.log('服务器 - 返回XML文件信息', 'SERVER_SND_XML', val)
+      if (!val)
+        return
       this.$store.state.xml = val
-      
       this.$store.state.xml.widget.description = this.$store.state.xml.widget.description.replace(/(^\s*)|(\s*$)/g, "")
     },
     SERVER_SND_PLUGINS: function(val){
       console.log('服务器 - 返回插件信息', 'SERVER_SND_PLUGINS', val)
+      if (!val)
+        return
       this.$store.state.plugins = val
     }
   },
   methods: {
     //方法 - 每次进入页面创建
-    click: function (item, key, keyPath) {
+    onClick: function (item, key, keyPath) {
       // console.log(item.key, key, keyPath)
       this.$router.push("/" + item.key)
     },
-    info: function () {
+    onInfo: function () {
       const h = this.$createElement
       this.$info({
         title: '关于vha(vue-Hybrid-App)',

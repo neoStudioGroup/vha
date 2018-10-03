@@ -166,7 +166,7 @@ export default {
     buttonCallback: function (index) {
       switch (index) {
         case 0: {
-          this.dataInit()
+          this.$socket.emit('CLIENT_GET_XML')//读取XML信息
         } break
         case 1: {
           this.$socket.emit('CLIENT_SET_XML', this.xml)

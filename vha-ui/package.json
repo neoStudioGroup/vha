@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "ant-design-vue": "^1.1.2",
+    "axios": "^0.18.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vue-socket.io": "^2.1.1-b",

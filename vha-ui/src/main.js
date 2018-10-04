@@ -10,6 +10,8 @@ Vue.use(Antd)
 import VueSocketio from 'vue-socket.io'
 Vue.use(VueSocketio, 'http://127.0.0.1:9876/')
 
+import axios from 'axios'
+Vue.prototype.$ajax = axios
 
 Vue.config.productionTip = false
 

@@ -70,16 +70,33 @@ export default {
       this.$emit('onClose')
     },
     onOk: function () {
-      this.$store.state.config.projectPath = this.$store.state.config.projectPath.replace(/\//,'//')
-      this.$store.state.config.openSoftware = this.$store.state.config.openSoftware.replace(/\//,'//')
-      
-      this.$socket.emit('CLIENT_SET_CONFIG', this.$store.state.config)
-      setTimeout(() => {
-        this.$socket.emit('CLIENT_GET_PROJECT')//可能修改了路径, 重新获取项目子目录
-        this.$socket.emit('CLIENT_GET_XML')//读取XML信息
-        this.$socket.emit('CLIENT_GET_PLUGINS')//读取PLUGINS信息
-      }, 50)
-      this.$emit('onClose')
+      // 判断目录是否存在 
+      this.$ajax({
+        method: 'get',
+        url: `http://localhost:${this.$store.state.config.servePort}/api?path=${this.$store.state.config.projectPath}`
+      }).then((response) => {
+        //////////////////////////////////
+        if (response.data === -1) {
+          this.$error({
+            title: '错误！',
+            content: '路径不存在！',
+          })
+          return
+        } else {
+          this.$store.state.config.projectPath = this.$store.state.config.projectPath.replace(/\//,'//')
+          this.$store.state.config.openSoftware = this.$store.state.config.openSoftware.replace(/\//,'//')
+          this.$socket.emit('CLIENT_SET_CONFIG', this.$store.state.config)
+          setTimeout(() => {
+            this.$socket.emit('CLIENT_GET_PROJECT')//可能修改了路径, 重新获取项目子目录
+            this.$socket.emit('CLIENT_GET_XML')//读取XML信息
+            this.$socket.emit('CLIENT_GET_PLUGINS')//读取PLUGINS信息
+          }, 50)
+          this.$emit('onClose')
+        }
+        //////////////////////////////////
+      }).catch((error) => {
+        console.log(error)
+      })
     }
   },
   watch: {

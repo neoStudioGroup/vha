@@ -21,7 +21,6 @@
     <div class="_UI-content _flexYauto">
 
       <p class="_noteA">功能：</p>
-      
       <ul class="_ulbtn">
         <!-- <li class="_buttonB">预览模式打开</li> -->
         <!-- <li class="_buttonB">用自建服务器打开</li> -->
@@ -32,35 +31,35 @@
           在应用程序打开
         </li>
       </ul>
+      <div class="_clear"></div>
       
+      <p class="_noteA">npm：</p>
+      <ul class="_ulbtn">
+        <!-- <li class="_buttonB" @click='$store.commit("runCmd", "ping baidu.com -t")'>测试</li> -->
+        <li class="_buttonB" @click='$store.commit("runCmd", "npm install")'>npm install</li>
+        <li class="_buttonB" @click='$store.commit("runCmd", "cnpm install")'>cnpm install</li>
+      </ul>
       <div class="_clear"></div>
       
       <p class="_noteA">添加：</p>
-      
       <ul class="_ulbtn">
         <!-- <li class="_buttonB" @click='$store.commit("runCmd", "ping baidu.com -t")'>测试</li> -->
         <li class="_buttonB" @click='$store.commit("runCmd", "cordova platform add android")'>添加Android平台</li>
         <li class="_buttonB" @click='$store.commit("runCmd", "cordova platform add ios")'>添加ios平台</li>
         <li class="_buttonB" @click='$store.commit("runCmd", "cordova platform add borwser")'>添加browser平台</li>
       </ul>
-      
       <div class="_clear"></div>
 
-
       <p class="_noteA">编译：</p>
-      
       <ul class="_ulbtn">
         <li class="_buttonB" @click='$store.commit("runCmd", "cordova build android")'>Debug编译 Apk</li>
         <li class="_buttonB" @click='$store.commit("runCmd", "cordova build android --release")'>发布编译 Apk</li>
         <li class="_buttonB" @click='$store.commit("runCmd", "cordova emulate android")'>运行 Apk</li>
         <li class="_buttonB" @click='$store.commit("runCmd", "cordova run android")'>真机调试</li>
       </ul>
-      
       <div class="_clear"></div>
 
-
       <p class="_noteA">打开：</p>
-      
       <ul class="_ulbtn">
         <li class="_buttonB" @click='$store.commit("runCmd", "start \"" + $store.state.config.projectPath + "\\" + $store.state.config.choose + "\"")'>打开CMD</li>
         <li class="_buttonB" @click='$store.commit("runCmd", "start " + $store.state.config.projectPath + "\\" + $store.state.config.choose)'>打开项目文件夹</li>
@@ -68,21 +67,16 @@
         <li class="_buttonB"  @click='$store.commit("runCmd", "start " + $store.state.config.projectPath + "\\" + $store.state.config.choose + "\\plugins")'>打开插件文件夹</li>
         <li class="_buttonB"  @click='$store.commit("runCmd", "start " + $store.state.config.projectPath + "\\" + $store.state.config.choose + "\\resources")'>打开资源文件夹</li>
       </ul>
-      
       <div class="_clear"></div>
 
-
       <!-- <p class="_noteA">自定义命令：</p>
-      
       <ul class="_ulbtn">
         <li class="_buttonB" @click='$store.commit("runCmd", "cordova platform add ios")'>查看vha版本信息</li>
         <li class="_buttonB" @click='$store.commit("runCmd", "cordova platform add ios")'>更新cordova vha</li>
         <li class="_buttonB" @click='$store.commit("runCmd", "cordova platform add ios")'>生成ios项目图标</li>
         <li class="_buttonB" @click='$store.commit("runCmd", "cordova platform add ios")'>生成ios启动屏幕</li>
       </ul>
-      
       <div class="_clear"></div> -->
-      
       
     </div>
   </div>

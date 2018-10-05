@@ -76,7 +76,7 @@ export default {
         url: `http://localhost:${this.$store.state.config.servePort}/api?path=${this.$store.state.config.projectPath}`
       }).then((response) => {
         //////////////////////////////////
-        if (response.data === -1) {
+        if (response.data === 0) {
           this.$error({
             title: '错误！',
             content: '路径不存在！',

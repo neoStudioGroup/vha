@@ -136,6 +136,7 @@ export default {
       
       //100毫秒后请求资源信息
       setTimeout(() => {
+        this.$store.state.command_code = this.$store.state.config.projectPath + "\\" + this.$store.state.config.choose + ">"
         if (this.$store.state.config.choose) {
           this.$socket.emit('CLIENT_GET_XML')//读取XML信息
           this.$socket.emit('CLIENT_GET_PLUGINS')//读取PLUGINS信息
@@ -154,6 +155,12 @@ export default {
     SERVER_CMD_END: function(){
       console.log('服务器 - CMD结束事件', 'SERVER_CMD_END')
       setTimeout(() => {
+        if (this.$store.state.command_nexReload) {
+            this.$socket.emit('CLIENT_GET_PROJECT')//可能修改了路径, 重新获取项目子目录
+            this.$socket.emit('CLIENT_GET_XML')//读取XML信息
+            this.$socket.emit('CLIENT_GET_PLUGINS')//读取PLUGINS信息
+        }
+        
         this.$store.state.command_state = false
         this.$store.state.command_code += "\n"
         this.$store.state.command_code += this.$store.state.config.projectPath + "\\" + this.$store.state.config.choose + ">"

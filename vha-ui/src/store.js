@@ -9,6 +9,7 @@ export default new Vuex.Store({
     command_state: false,
     command_value: 'ipconfig',
     command_code: '请选择一个项目',
+    command_nexReload: false,
     config: {
       servePort: "",
       choose: "",

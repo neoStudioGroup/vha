@@ -12,15 +12,19 @@
       :closable="false"
       @close="onClose"
       :visible="visible"
-      style="height: calc(100% - 55px);overflow: 'auto';paddingBottom: 53px"
     >
-      <a-divider orientation="left">选择模板</a-divider>
-      <a-radio-group @change="onChange($event)" v-model="value">
+      <a-divider orientation="left">官方模板</a-divider>
+      <a-radio-group v-model="formValue">
+        <a-radio-button value="oschina">oschina</a-radio-button>
+        <a-radio-button value="git">git</a-radio-button>
+      </a-radio-group>
+      
+      <a-radio-group v-model="selectValue" style="height: calc(100% - 55px);overflow: 'auto';paddingBottom: 53px">
         <a-row>
           <a-col :span="8" style="padding:10px">
             <a-card
               hoverable
-              style="width: 100%"
+              style="width: 100%;border:none;border-radius:10px;"
             >
               <img
                 alt="example"
@@ -37,7 +41,7 @@
           <a-col :span="8" style="padding:10px">
            <a-card
               hoverable
-              style="width: 100%"
+              style="width: 100%;border:none;border-radius:10px;"
             >
               <img
                 alt="example"
@@ -54,7 +58,7 @@
           <a-col :span="8" style="padding:10px">
            <a-card
               hoverable
-              style="width: 100%"
+              style="width: 100%;border:none;border-radius:10px;"
             >
               <img
                 alt="example"
@@ -71,9 +75,6 @@
         </a-row>
       </a-radio-group>
       
-      <h6 :style="{marginTop:'40px'}">项目名称：</h6>
-      <a-input placeholder="my-app" v-model="name"/>
-      
       <div
         :style="{
           position: 'absolute',
@@ -85,8 +86,15 @@
           left: 0,
           background: '#fff',
           borderRadius: '0 0 4px 4px',
+          display: 'flex',
+          alignItems: 'center',
         }"
       >
+        <div style="margin-right:auto;display:flex;align-items:center">
+          <span style="white-space:nowrap">项目名称：</span>
+          <a-input placeholder="my-app" v-model="name"/>
+        </div>
+        <div style="margin-left:auto">
         <a-button
           style="margin-right:8px"
           @click="onClose()"
@@ -94,6 +102,7 @@
           取消
         </a-button>
         <a-button @click="onCreate()" type="primary">创建</a-button>
+      </div>
       </div>
     </a-drawer>
 
@@ -113,13 +122,25 @@ export default {
   data() {
     //动态数据
     return {
-      value: 1,
+      formValue: 'oschina',
+      selectValue: 1,
       radioStyle: {
         display: 'block',
         height: '30px',
-        lineHeight: '30px',
+        lineHeight: '30px'
       },
-      name: ''
+      name: '',
+      gitTemplateList: [
+        'https://github.com/mixingyu/vha-template-blank.git',
+        'https://github.com/mixingyu/vha-template-tabs.git',
+        'https://github.com/mixingyu/vha-template-app.git'
+      ],
+      oschinaTemplateList: [
+        'https://gitee.com/mixingyu/vha-template-blank.git',
+        'https://gitee.com/mixingyu/vha-template-tabs.git',
+        'https://gitee.com/mixingyu/vha-template-app.git'
+      ],
+      selectNumber: 1
     }
   },
   methods: {
@@ -142,16 +163,37 @@ export default {
           content: '名称不能含有汉字！',
         })
       } else {
-        console.log(this.name)
-        //创建
+        // 判断目录是否存在 
+        let tmp_name = this.name
+        let tmp_TemplateList = (this.formValue === 'oschina' ? this.oschinaTemplateList : this.gitTemplateList)
+        let tmp_selectNumber = this.selectValue
         
-        this.name = ''
-        this.$emit('onClose')
+        this.$ajax({
+          method: 'get',
+          url: `http://localhost:${this.$store.state.config.servePort}/api?path=${this.$store.state.config.projectPath}\\${tmp_name}`
+        }).then((response) => {
+          //////////////////////////////////
+          if (response.data != 0) {
+            this.$error({
+              title: '错误！',
+              content: '路径已存在！'
+            })
+            return
+          } else {
+            this.$socket.emit('CLIENT_GEN_FOLDER', `${this.$store.state.config.projectPath}\\${tmp_name}`)
+            setTimeout(() => {
+              this.$store.commit('runCmd', `git clone ${tmp_TemplateList[tmp_selectNumber - 1]} "${this.$store.state.config.projectPath}\\${tmp_name}"`)
+              setTimeout(() => {
+                this.$store.state.command_nexReload = true
+              }, 50)
+            }, 100)
+            this.$emit('onClose')
+          }
+          //////////////////////////////////
+        }).catch((error) => {
+          console.log(error)
+        })
       }
-      
-    },
-    onChange: function () {
-      console.log('radio checked', e.target.value)
     }
   },
   watch: {

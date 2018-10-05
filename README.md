@@ -1,9 +1,7 @@
 # vha-cli coming soon....
-Vue hybrid app 构建工具
+Vue hybrid app 可视化构建平台
 
 VueCli3.0 + Vue Router + Vux + Axios + Stylu + vha-components + vha-native(Cordova)
-
-
 
 
 ```shell

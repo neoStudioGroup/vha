@@ -12,8 +12,12 @@
 
     <!-- UI组件-名称 -->
     <div class="_UI-name">
+      检查nodejs
       检查cordova
       检查vha 安装正确和版本
+      检查git 安装正确和版本
+      
+      检查Android sdk
       
       检查java命令是否可以运行
       

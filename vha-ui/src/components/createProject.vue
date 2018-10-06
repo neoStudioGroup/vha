@@ -13,18 +13,21 @@
       @close="onClose"
       :visible="visible"
     >
-      <a-divider orientation="left">官方模板</a-divider>
-      <a-radio-group v-model="formValue">
-        <a-radio-button value="oschina">oschina</a-radio-button>
-        <a-radio-button value="git">git</a-radio-button>
-      </a-radio-group>
+      <!-- <a-divider orientation="left">官方模板</a-divider> -->
       
-      <a-radio-group v-model="selectValue" style="height: calc(100% - 55px);overflow: 'auto';paddingBottom: 53px">
+      <a-radio-group v-model="selectValue" style="height: calc(100% - 55px);overflow:auto;paddingBottom: 53px;text-align:center">
+        
+        <a-radio-group v-model="formValue" style="margin:10px auto 20px">
+          <a-radio-button value="oschina">oschina</a-radio-button>
+          <a-radio-button value="git">git</a-radio-button>
+        </a-radio-group>
+        
         <a-row>
           <a-col :span="8" style="padding:10px">
             <a-card
               hoverable
-              style="width: 100%;border:none;border-radius:10px;"
+              style="width: 100%;border:none;border-radius:6px;"
+              @click="onChangeselectValue(1)"
             >
               <img
                 alt="example"
@@ -41,7 +44,8 @@
           <a-col :span="8" style="padding:10px">
            <a-card
               hoverable
-              style="width: 100%;border:none;border-radius:10px;"
+              style="width: 100%;border:none;border-radius:6px;"
+              @click="onChangeselectValue(2)"
             >
               <img
                 alt="example"
@@ -58,7 +62,8 @@
           <a-col :span="8" style="padding:10px">
            <a-card
               hoverable
-              style="width: 100%;border:none;border-radius:10px;"
+              style="width: 100%;border:none;border-radius:6px;"
+              @click="onChangeselectValue(3)"
             >
               <img
                 alt="example"
@@ -194,6 +199,9 @@ export default {
           console.log(error)
         })
       }
+    },
+    onChangeselectValue: function (val) {
+      this.selectValue = val
     }
   },
   watch: {

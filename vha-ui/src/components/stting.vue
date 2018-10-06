@@ -16,7 +16,7 @@
       <a-divider orientation="left">系统配置</a-divider>
       
       <h6 :style="{marginTop:'40px'}">项目目录：</h6>
-      <a-input placeholder="C:\" v-model="$store.state.config.projectPath"/>
+      <a-input placeholder="X:\project" v-model="$store.state.config.projectPath"/>
       <h6 :style="{marginTop:'10px', marginLeft:'10px', color:'#bbb'}">项目的管理目录(不能包含中文)</h6>
       
       <!-- <h6 :style="{marginTop:'40px'}">打开浏览器路径：</h6>
@@ -24,7 +24,7 @@
       <h6 :style="{marginTop:'10px', marginLeft:'10px', color:'#bbb'}">指定用于浏览打开项目的浏览器</h6> -->
       
       <h6 :style="{marginTop:'40px'}">打开程序路径</h6>
-      <a-input placeholder="C:\" v-model="$store.state.config.openSoftware"/>
+      <a-input placeholder="X:\\Microsoft VS Code\\Code.exe" v-model="$store.state.config.openSoftware"/>
       <h6 :style="{marginTop:'10px', marginLeft:'10px', color:'#bbb'}">指定用于打开项目的应用程序(如webstrom、vscode、sublime)</h6>
       
       <div

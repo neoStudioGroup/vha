@@ -156,9 +156,10 @@ export default {
       console.log('服务器 - CMD结束事件', 'SERVER_CMD_END')
       setTimeout(() => {
         if (this.$store.state.command_nexReload) {
-            this.$socket.emit('CLIENT_GET_PROJECT')//可能修改了路径, 重新获取项目子目录
-            this.$socket.emit('CLIENT_GET_XML')//读取XML信息
-            this.$socket.emit('CLIENT_GET_PLUGINS')//读取PLUGINS信息
+          this.$socket.emit('CLIENT_GET_PROJECT')//可能修改了路径, 重新获取项目子目录
+          this.$socket.emit('CLIENT_GET_XML')//读取XML信息
+          this.$socket.emit('CLIENT_GET_PLUGINS')//读取PLUGINS信息
+          this.$store.state.command_nexReload = false
         }
         
         this.$store.state.command_state = false

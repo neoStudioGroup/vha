@@ -10,7 +10,7 @@ npm install vha cordova -g
 
 ```shell
 vha ui
-vha v
+vha -v
 ```
 
 <!-- vha create

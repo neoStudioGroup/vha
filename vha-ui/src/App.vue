@@ -70,6 +70,10 @@
         <a-menu-item key="templatemarket" style="float:right">
           <a-icon type="mobile" />
           模板商城
+        </a-menu-item>
+        <a-menu-item key="templatemarket" style="float:right">
+          <a-icon type="mobile" />
+          云数据库
         </a-menu-item> -->
       </a-menu>
     </div>

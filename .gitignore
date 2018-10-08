@@ -2,6 +2,7 @@ node_modules
 
 .DS_Store
 /www
+package-lock.json
 
 # local env files
 .env.local

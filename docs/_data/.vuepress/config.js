@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Hello, World.',
   description: '📦 🎨 A api-friendly theme for VuePress.',
-  base: '/',
+  base: '/vha/',
   locales: {
     '/': {
       lang: 'en-US',

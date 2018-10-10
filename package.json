@@ -8,9 +8,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs:dev": "vuepress dev docs\\_data",
-    "docs:build": "vuepress build docs\\_data",
-    "db": "vuepress build docs\\_data && docs\\_data\\press.bat",
+    "docs:dev": "vuepress dev _docsdata",
+    "docs:build": "vuepress build _docsdata",
+    "db": "vuepress build _docsdata && _docsdata\\press.bat",
     "deploy": "bash deploy.sh"
   },
   "repository": {
@@ -32,6 +32,7 @@
     "koa-static": "^5.0.0",
     "koa-views": "^6.1.4",
     "socket.io": "^2.1.1",
+    "vuepress-theme-api": "^0.2.1",
     "xml2js": "^0.4.19"
   }
 }

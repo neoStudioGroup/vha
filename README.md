@@ -1,5 +1,10 @@
-# vha-cli....
-Vue hybrid app 可视化构建平台 (vue混合移动开发集成解决方案)
+<p align="center"><img align="center" src="https://raw.githubusercontent.com/neoStudioGroup/vha/master/README/logo.png"/></p>
+<p align="center">
+  <a href="https://www.npmjs.com/package/vha"><img src="https://badgen.net/npm/v/vha" alt="Version"></a>
+  <a href="https://github.com/neoStudioGroup/vha/blob/master/LICENSE"><img src="https://badgen.net/npm/license/vha" alt="License"></a>
+</p>
+
+> Vue hybrid app 可视化构建平台 (vue混合移动开发集成解决方案)
 
 # 技术栈
 

@@ -18,9 +18,9 @@ vha -v
 
 # 截图
 
-<img src="README/1.png"/>
-<img src="README/2.png"/>
-<img src="README/3.png"/>
+<img src="https://raw.githubusercontent.com/neoStudioGroup/vha/master/README/1.png"/>
+<img src="https://raw.githubusercontent.com/neoStudioGroup/vha/master/README/2.png"/>
+<img src="https://raw.githubusercontent.com/neoStudioGroup/vha/master/README/3.png"/>
 
 ## License
 

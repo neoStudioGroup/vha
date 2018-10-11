@@ -17,15 +17,15 @@
 </div>
 
 ---
-# 关于vha
+## 关于vha
 
 vha是实现vue混合移动开发的整合方案。使用ui工具可以快速方便的实现Cordova项目搭建、编译、修改、生成资源、证书等操作。（未来将加入微信小程序的一键构建）
 
-# 技术栈
+## 技术栈
 
 VueCli3.0 + VueRouter + Vuex + Axios + Stylu + vha-components + vha-native(Cordova)
 
-# 开始
+## 开始
 
 ```shell
 npm install vha cordova -g
@@ -36,13 +36,13 @@ vha ui
 vha -v
 ```
 
-# 截图
+### 截图
 
 <img src="https://raw.githubusercontent.com/neoStudioGroup/vha/master/README/1.png"/>
 <img src="https://raw.githubusercontent.com/neoStudioGroup/vha/master/README/2.png"/>
 <img src="https://raw.githubusercontent.com/neoStudioGroup/vha/master/README/3.png"/>
 
-## License
+### License
 
 [MIT](https://github.com/neoStudioGroup/vha/blob/master/LICENSE)
 

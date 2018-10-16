@@ -13,6 +13,10 @@
     "db": "vuepress build _docsdata && _docsdata\\press.bat",
     "deploy": "bash deploy.sh"
   },
+  "keywords": [
+    "vue",
+    "hybridapp"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/neoStudioGroup/vha.git"

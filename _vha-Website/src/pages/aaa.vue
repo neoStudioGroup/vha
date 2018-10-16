@@ -3,7 +3,7 @@
 
   // UI组件-名称
   ._UI-name
-    background-color red
+    background-color white
 
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
@@ -14,6 +14,7 @@
     <div class="_UI-name">
       222222
     </div>
+    <router-link to="/">1111</router-link>
 
   </div>
 </template>
@@ -21,6 +22,19 @@
 <script type="text/ecmascript-6">
 export default {
   name: 'PGaaa',
+  metaInfo: {
+    title: '我是一个title',
+    meta: [
+      {
+        name: 'keywords',
+        content: '关键字1,关键字2,关键字3'
+      },
+      {
+        name: 'description',
+        content: '这是一段网页的描述'
+      }
+    ]
+  },
   data() {
     //动态数据
     return {

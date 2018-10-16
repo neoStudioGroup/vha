@@ -169,13 +169,13 @@ export default {
         })
       } else {
         // 判断目录是否存在 
-        let tmp_name = this.name
-        let tmp_TemplateList = (this.formValue === 'oschina' ? this.oschinaTemplateList : this.gitTemplateList)
-        let tmp_selectNumber = this.selectValue
+        let temp_name = this.name
+        let temp_TemplateList = (this.formValue === 'oschina' ? this.oschinaTemplateList : this.gitTemplateList)
+        let temp_selectNumber = this.selectValue
         
         this.$ajax({
           method: 'get',
-          url: `http://localhost:${this.$store.state.config.servePort}/api?path=${this.$store.state.config.projectPath}\\${tmp_name}`
+          url: `http://localhost:${this.$store.state.config.servePort}/api?path=${this.$store.state.config.projectPath}\\${temp_name}`
         }).then((response) => {
           //////////////////////////////////
           if (response.data != 0) {
@@ -185,9 +185,9 @@ export default {
             })
             return
           } else {
-            this.$socket.emit('CLIENT_GEN_FOLDER', `${this.$store.state.config.projectPath}\\${tmp_name}`)
+            this.$socket.emit('CLIENT_GEN_FOLDER', `${this.$store.state.config.projectPath}\\${temp_name}`)
             setTimeout(() => {
-              this.$store.commit('runCmd', `git clone ${tmp_TemplateList[tmp_selectNumber - 1]} "${this.$store.state.config.projectPath}\\${tmp_name}"`)
+              this.$store.commit('runCmd', `git clone ${temp_TemplateList[temp_selectNumber - 1]} "${this.$store.state.config.projectPath}\\${temp_name}"`)
               setTimeout(() => {
                 this.$store.state.command_nexReload = true
               }, 50)

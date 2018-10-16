@@ -293,20 +293,20 @@ export default {
   methods: {
     //方法 - 每次进入页面创建
     CLIENT_GEN_ICON: function (_savePath, _query) {
-      let tmp_iocnInfo = {
+      let temp_iocnInfo = {
         savePath: _savePath,
         icondatas: []
       }
       
       let canvas = document.querySelectorAll(_query)
       canvas.forEach(element => {
-        tmp_iocnInfo.icondatas.push({
+        temp_iocnInfo.icondatas.push({
           name: element.getAttribute('data-name') + '.png',
           base64Data: element.toDataURL().replace(/^data:image\/\w+;base64,/, "")
         })
       })
       
-      this.$socket.emit('CLIENT_GEN_ICON', tmp_iocnInfo)
+      this.$socket.emit('CLIENT_GEN_ICON', temp_iocnInfo)
     },
     buttonCallback: function (index) {
       switch (index) {

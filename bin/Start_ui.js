@@ -71,30 +71,30 @@ io.on('connect', (client) => {
     }
     
     // //处理命令和参数|分割
-    let tmp_command = command
-    let tmp_args = []
+    let temp_command = command
+    let temp_args = []
     
-    // if (tmp_command.indexOf('|') != -1) {
-    //   let tmp_commands = tmp_command.split('|')
-    //   tmp_command = tmp_commands[0]
-    //   if (tmp_command = 'npm') {
+    // if (temp_command.indexOf('|') != -1) {
+    //   let temp_commands = temp_command.split('|')
+    //   temp_command = temp_commands[0]
+    //   if (temp_command = 'npm') {
     //     if (os.platform() === 'win32') {
-    //       tmp_command = 'npm.cmd'
+    //       temp_command = 'npm.cmd'
     //     } else {
-    //       tmp_command = 'npm'
+    //       temp_command = 'npm'
     //     }
     //   }
-    //   tmp_args.push(tmp_commands[1])
+    //   temp_args.push(temp_commands[1])
     // }
     
     //判断执行路径是否存在 如果不存在就''执行
-    let tmp_result = await api.isPath(glb.config.projectPath + "\\" + glb.config.choose)
+    let temp_result = await api.isPath(glb.config.projectPath + "\\" + glb.config.choose)
     
     //运行cmd命令
-    let childProcess = require('child_process').spawn(tmp_command, tmp_args, {
+    let childProcess = require('child_process').spawn(temp_command, temp_args, {
       shell: true,
       encoding: 'buffer',
-      cwd: (tmp_result === 0 ? '' : glb.config.projectPath + "\\" + glb.config.choose)
+      cwd: (temp_result === 0 ? '' : glb.config.projectPath + "\\" + glb.config.choose)
     })
     childProcess.stdout.on('data', function (stdout) {
       client.emit('SERVER_CMD_DATA', iconv.decode(stdout, 'cp936'))

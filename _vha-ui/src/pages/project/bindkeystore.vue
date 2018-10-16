@@ -105,11 +105,11 @@ export default {
         this.keyPass = this.keyStorepass
       }
       
-      // let tmp_apkPath = this.apkPath
-      // if (tmp_apkPath.indexOf('-unsigned.apk') != -1) {
-      //   tmp_apkPath = tmp_apkPath.replace(/-unsigned\.apk/, "-unaligned-OK.apk")
+      // let temp_apkPath = this.apkPath
+      // if (temp_apkPath.indexOf('-unsigned.apk') != -1) {
+      //   temp_apkPath = temp_apkPath.replace(/-unsigned\.apk/, "-unaligned-OK.apk")
       // } else {
-      //   tmp_apkPath = tmp_apkPath.replace(/\.apk/, "-unaligned-OK.apk")
+      //   temp_apkPath = temp_apkPath.replace(/\.apk/, "-unaligned-OK.apk")
       // }
       
       this.$store.commit('runCmd', 
@@ -123,9 +123,9 @@ export default {
       )
     },
     processPath: function (path) {
-      let tmp_pst = path.lastIndexOf('\\')
-      if (tmp_pst != -1) {
-        return path.slice(0, tmp_pst)
+      let temp_pst = path.lastIndexOf('\\')
+      if (temp_pst != -1) {
+        return path.slice(0, temp_pst)
       }
     },
     dataInit: function () {

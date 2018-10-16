@@ -49,10 +49,10 @@ function readProject () {
       
       let files = await readdir(glb.config.projectPath)
       
-      let tmp_projects = []
+      let temp_projects = []
       //循环输出所有文件
       for (const element of files) {
-        let tmp_project = {
+        let temp_project = {
           name: element,
           src: ''
         }
@@ -60,10 +60,10 @@ function readProject () {
         let stats = await stat(glb.config.projectPath + '/' + element)
         if (stats.isDirectory()) {
           if (!/.*[\u4e00-\u9fa5]+.*$/.test(element))
-            tmp_projects.push(tmp_project)
+            temp_projects.push(temp_project)
         }
       }
-      resolve(tmp_projects)
+      resolve(temp_projects)
     } catch (error) {
       console.log(error + '\n错误：读取项目目录内子项目')
       reject(error + '\n错误：读取项目目录内子项目')
@@ -225,18 +225,18 @@ function replacePos (str, oldStr, newStr, Pos, isAll) {
   if(!isAll)
     isAll = false
     
-  let tmp_for = str.substring(0, Pos)
-  let tmp_back = str.substring(Pos, str.length)
+  let temp_for = str.substring(0, Pos)
+  let temp_back = str.substring(Pos, str.length)
   
-  tmp_back = tmp_back.replace(eval('/' + oldStr + '/' + (isAll ? 'g' : '')), newStr)
-  return tmp_for + tmp_back
+  temp_back = temp_back.replace(eval('/' + oldStr + '/' + (isAll ? 'g' : '')), newStr)
+  return temp_for + temp_back
 }
 
 //取字符串中间内容
 function getStrMid (str, starStr, endStr) {
-  let tmp_for = str.indexOf(starStr) + starStr.length
-  let tmp_back = str.indexOf(endStr, tmp_for)
-  return str.substring(tmp_for, tmp_back)
+  let temp_for = str.indexOf(starStr) + starStr.length
+  let temp_back = str.indexOf(endStr, temp_for)
+  return str.substring(temp_for, temp_back)
 }
 
 //读取xml并转换成json保存到全局变量,then返回原始数据
@@ -278,14 +278,14 @@ function readPlugins () {
         return
       }
       
-      let tmp_plugins = []
+      let temp_plugins = []
       for (const element of data) {
         let stats = fs.lstatSync(glb.config.projectPath + "\\" + glb.config.choose + "\\plugins\\" + element)
         if (stats.isDirectory()) {
-          tmp_plugins.push(element)
+          temp_plugins.push(element)
         }
       }
-      glb.plugins = tmp_plugins
+      glb.plugins = temp_plugins
       resolve(glb.plugins)
     })
   })
@@ -303,15 +303,15 @@ function changeXml (val) {
       //先读取一次最新的数据
       let data = await readXml()
       
-      let tmp_data = data.toString()
+      let temp_data = data.toString()
       //根据新数据对应修改
       for (const key in val) {
         if (val.hasOwnProperty(key)) {
-          let tmp_strMid = getStrMid(tmp_data, val[key].startMark, val[key].endMark)
-          tmp_data = replacePos(tmp_data, tmp_strMid, val[key].value, tmp_data.indexOf(val[key].startMark))
+          let temp_strMid = getStrMid(temp_data, val[key].startMark, val[key].endMark)
+          temp_data = replacePos(temp_data, temp_strMid, val[key].value, temp_data.indexOf(val[key].startMark))
         }
       }
-      fs.writeFileSync(glb.config.projectPath + "\\" + glb.config.choose + "\\config.xml", tmp_data)
+      fs.writeFileSync(glb.config.projectPath + "\\" + glb.config.choose + "\\config.xml", temp_data)
       resolve()
     } catch (error) {
       console.log(error + '\n错误：修改xml资源')
@@ -409,15 +409,15 @@ function genProject (json) {
 
 
 
-// let tmp_config = config.getConfig()
-// for (const key in tmp_config) {
-//   if (tmp_config.hasOwnProperty(key)) {
+// let temp_config = config.getConfig()
+// for (const key in temp_config) {
+//   if (temp_config.hasOwnProperty(key)) {
 //     if (val[key]) {
-//       tmp_config[key] = val[key]
+//       temp_config[key] = val[key]
 //     }
 //   }
 // }
-// config.saveConfig(tmp_config)
+// config.saveConfig(temp_config)
 // config.init()
 // client.emit('SERVER_SND_CONFIG', glb.config)
 

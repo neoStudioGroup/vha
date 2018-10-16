@@ -316,28 +316,28 @@ export default {
       })
     },
     dataInit: function () {
-      let tmp_names = ''
+      let temp_names = ''
       
       this.$store.state.plugins.forEach(element => {
-        tmp_names += element + '|'
+        temp_names += element + '|'
       })
       
       this.SystemPluginData.forEach(element => {
-        if (tmp_names.indexOf(element.name + '|') != -1)
+        if (temp_names.indexOf(element.name + '|') != -1)
           element.ckd = true
         else
           element.ckd = false
       })
       
       this.DevicePluginData.forEach(element => {
-        if (tmp_names.indexOf(element.name + '|') != -1)
+        if (temp_names.indexOf(element.name + '|') != -1)
           element.ckd = true
         else
           element.ckd = false
       })
       
       this.OtherPluginData.forEach(element => {
-        if (tmp_names.indexOf(element.name + '|') != -1)
+        if (temp_names.indexOf(element.name + '|') != -1)
           element.ckd = true
         else
           element.ckd = false

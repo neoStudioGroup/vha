@@ -1,19 +1,17 @@
 <style lang="stylus">
-// ._PG-components
-
-  // UI组件-名称
-  // ._UI-name
-    // background-color red
-
+._PG-components
+  width 100%
+  height 100%
+  overflow hidden
+  iframe
+    width 100%
+    height 100%
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
   <div class="_PG-components">
 
-    <!-- UI组件-名称 -->
-    <div class="_UI-name">
-      coming soon...
-    </div>
+    <iframe src="https://neostudiogroup.github.io/vha-components/" frameborder="0"></iframe>
 
   </div>
 </template>

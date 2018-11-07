@@ -21,7 +21,7 @@
     <p>连接状态: {{$store.state.socket_connect}}</p>
     
     <a-input-search v-model="$store.state.command_value" @search="onButton" enterButton="运行" size="large" />
-
+    
     <pre>{{$store.state.command_code}}</pre>
     
   </div>

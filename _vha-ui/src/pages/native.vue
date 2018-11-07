@@ -1,19 +1,17 @@
 <style lang="stylus">
-// ._PG-native
-
-  // UI组件-名称
-  // ._UI-name
-    // background-color red
-
+._PG-native
+  width 100%
+  height 100%
+  overflow hidden
+  iframe
+    width 100%
+    height 100%
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
   <div class="_PG-native">
-
-    <!-- UI组件-名称 -->
-    <div class="_UI-name">
-      coming soon...
-    </div>
+    
+    <iframe src="https://neostudiogroup.github.io/vha-native/" frameborder="0"></iframe>
 
   </div>
 </template>

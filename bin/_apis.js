@@ -15,9 +15,9 @@ const xml2js = require('xml2js');
 const iconv = require('iconv-lite');
 // －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 
-console.log('运行目录', __dirname, path.resolve(__dirname, '..'))
+// console.log('运行目录', __dirname, path.resolve(__dirname, '..'))
 
-//重载
+//ANCHOR 重载"
 async function reloding () {
   return new Promise (async function (resolve, reject) {
     try {
@@ -38,7 +38,7 @@ async function reloding () {
   })
 }
 
-//读取项目内文件夹
+//ANCHOR 读取项目内文件夹"
 function readProject () {
   return new Promise (async function (resolve, reject) {
     try {
@@ -71,7 +71,7 @@ function readProject () {
   })
 }
 
-//将项目文件夹内icon复制到服务器ui/icon文件夹内
+//ANCHOR 将项目文件夹内icon复制到服务器ui/icon文件夹内"
 function procIcons () {
   return new Promise (async function (resolve, reject) {
     try {
@@ -84,9 +84,9 @@ function procIcons () {
       await isPath(path.resolve(__dirname, '..') + '\\ui\\icons', true)
       
       //删除清空icons文件夹内图标文件
-      let files = await readdir('./ui/icons/')
+      let files = await readdir(path.resolve(__dirname, '..') + '\\ui\\icons')
       files.forEach(element => {
-        fs.unlink('./ui/icons/' + element, function (unlink) {
+        fs.unlink(path.resolve(__dirname, '..') + '\\ui\\icons\\' + element, function (unlink) {
           // console.log(unlink)
         })
       })
@@ -96,7 +96,7 @@ function procIcons () {
         await stat(glb.config.projectPath + '/' + element.name + '/resources/icon.png').then((stats) => {
           element.src = 'http://localhost:' + glb.config.servePort + '/icons/' + element.name + '.png'
           let readStream = fs.createReadStream(glb.config.projectPath + '/' + element.name + '/resources/icon.png')
-          let writeStream = fs.createWriteStream('./ui/icons/' + element.name + '.png')
+          let writeStream = fs.createWriteStream(path.resolve(__dirname, '..') + '\\ui\\icons\\' + element.name + '.png')
           readStream.pipe(writeStream)
         }, (error) => {
           // console.log("图标文件不存在", error)
@@ -111,7 +111,7 @@ function procIcons () {
   })
 }
 
-//运行cmd命令   -- 废弃
+//ANCHOR 运行cmd命令   -- 废弃"
 function runCmd (command, stdCallback, errorback, cpob) {
   // if (!glb.config.projectPath || !glb.config.choose){
   //   console.log('未设置项目目录 或 未设置选中项目')
@@ -164,7 +164,7 @@ function runCmd (command, stdCallback, errorback, cpob) {
 //   }
 // })
 
-//退出cmd命令
+//ANCHOR 退出cmd命令"
 function exitCmd (process) {
   if (os.platform() === 'win32') {
     require('child_process').exec("taskkill /pid " + process.pid + " -t -f")
@@ -173,7 +173,7 @@ function exitCmd (process) {
   }
 }
 
-//判断一个目录或文件是否存在, 1文件 2目录 如果0不存在就创建
+//ANCHOR "判断一个目录或文件是否存在, 1文件 2目录 如果0不存在就创建"
 function isPath (path, isGen) {
   return new Promise (async function (resolve, reject) {
     if(!isGen)
@@ -203,7 +203,7 @@ function isPath (path, isGen) {
   })
 }
 
-//递归创建目录 异步方法
+//ANCHOR 递归创建目录 异步方法"
 function mkdirs (dirname, callback) {
   fs.stat(dirname, function (error) {
     if (!error) {
@@ -218,7 +218,7 @@ function mkdirs (dirname, callback) {
   })
 }
 
-//根据位置替换字符串
+//ANCHOR 根据位置替换字符串"
 function replacePos (str, oldStr, newStr, Pos, isAll) {
   if(!Pos)
     Pos = 0
@@ -232,14 +232,14 @@ function replacePos (str, oldStr, newStr, Pos, isAll) {
   return temp_for + temp_back
 }
 
-//取字符串中间内容
+//ANCHOR 取字符串中间内容"
 function getStrMid (str, starStr, endStr) {
   let temp_for = str.indexOf(starStr) + starStr.length
   let temp_back = str.indexOf(endStr, temp_for)
   return str.substring(temp_for, temp_back)
 }
 
-//读取xml并转换成json保存到全局变量,then返回原始数据
+//ANCHOR 读取xml并转换成json保存到全局变量,then返回原始数据"
 function readXml () {
   return new Promise (function (resolve, reject) {
     glb.xml = {}
@@ -263,7 +263,7 @@ function readXml () {
   })
 }
 
-//读取Plugins并保存到全局变量
+//ANCHOR 读取Plugins并保存到全局变量"
 function readPlugins () {
   return new Promise (function (resolve, reject) {
     glb.plugins = []
@@ -291,7 +291,7 @@ function readPlugins () {
   })
 }
 
-//修改当前项目xml资源文件
+//ANCHOR 修改当前项目xml资源文件"
 function changeXml (val) {
   return new Promise (async function (resolve, reject) {
     try {
@@ -320,7 +320,7 @@ function changeXml (val) {
   })
 }
 
-//生成keyConfig.json配置
+//ANCHOR 生成keyConfig.json配置"
 function genKey (path, json) {
   return new Promise (function (resolve, reject) {
     fs.writeFile(path + '\\keyConfig.json', JSON.stringify(json, null, 2), function (error) {
@@ -335,7 +335,7 @@ function genKey (path, json) {
   })
 }
 
-//生成resources图标
+//ANCHOR 生成resources图标"
 function genIcon (json) {
   return new Promise (function (resolve, reject) {
     if (!glb.config.projectPath || !glb.config.choose){
@@ -376,7 +376,7 @@ function genIcon (json) {
   })
 }
 
-// 创建文件夹
+//ANCHOR 创建文件夹"
 function genFolder (path) {
   return new Promise (async function (resolve, reject) {
     await mkdirs(path, () => {
@@ -386,7 +386,7 @@ function genFolder (path) {
   })
 }
 
-// 构建项目
+//ANCHOR 构建项目"
 function genProject (json) {
   return new Promise (function (resolve, reject) {
     if (!glb.config.projectPath){

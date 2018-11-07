@@ -53,11 +53,11 @@
         </a-menu-item>
         <a-menu-item key="components">
           <a-icon type="appstore" />
-          组件文档
+          模板市场
         </a-menu-item>
         <a-menu-item key="native">
           <a-icon type="mobile" />
-          API文档
+          组件市场
         </a-menu-item>
         <!-- <a-menu-item key="tutorial" style="float:right">
           <a-icon type="mobile" />

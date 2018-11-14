@@ -20,13 +20,17 @@
 
 vha是实现vue混合移动开发的整合方案。使用ui工具可以快速方便的实现Cordova项目搭建、编译、修改、生成资源、证书等操作。（未来将加入微信小程序的一键构建）
 
+### 联系我们
+
+临时官方讨论QQ群：928059701
+
 ## 传送门
 
-[vha官网](https://neostudiogroup.github.io/vha/) [vha-components 文档](https://neostudiogroup.github.io/vha-components/) [vha-native 文档](https://neostudiogroup.github.io/vha-native/)
+[vha官网](https://neostudiogroup.github.io/vha/) | [vha-components文档](https://neostudiogroup.github.io/vha-components/) | [vha-native文档](https://neostudiogroup.github.io/vha-native/)
 
-[vha (Github)](https://github.com/neoStudioGroup/vha) [vha-components (Github)](https://github.com/neoStudioGroup/vha-components) [vha-native (Github)](https://github.com/neoStudioGroup/vha-native) [vha-appDemo (Github)](https://github.com/neoStudioGroup/vha-appDemo)
+[vha(Github)](https://github.com/neoStudioGroup/vha) | [vha-components(Github)](https://github.com/neoStudioGroup/vha-components) | [vha-native(Github)](https://github.com/neoStudioGroup/vha-native) | [vha-appDemo(Github)](https://github.com/neoStudioGroup/vha-appDemo)
 
-[vha-components (在线演示)](https://neostudiogroup.github.io/vha-appDemo/#/) [vha-appDemo (Apk文件)](https://github.com/neoStudioGroup/vha-appDemo/releases/download/0.0.2/vha-appDemo.apk)
+[vha-components (在线演示)](https://neostudiogroup.github.io/vha-appDemo/#/) | [vha-appDemo (Apk文件)](https://github.com/neoStudioGroup/vha-appDemo/releases/download/0.0.2/vha-appDemo.apk)
 
 ## 技术栈
 

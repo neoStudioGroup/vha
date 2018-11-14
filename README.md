@@ -3,8 +3,10 @@
 <p align="center">
   <em>Vue hybrid app 可视化构建平台 (vue混合移动开发集成解决方案)</em>
 </p>
+
 <p align="center"><img align="center" width="200" src="https://raw.githubusercontent.com/neoStudioGroup/vha/master/README/logo.png"/></p>
-<p align="center"><img align="center" src="https://raw.githubusercontent.com/neoStudioGroup/vha/master/README/logo-ex.png"/></p>
+<p align="center"><img align="center" width="400" src="https://raw.githubusercontent.com/neoStudioGroup/vha/master/README/logo-ex.png"/></p>
+
 <p align="center">
   <a href="https://www.npmjs.com/package/vha"><img src="https://badgen.net/npm/v/vha" alt="Version"></a>
   <a href="https://codeload.github.com/neoStudioGroup/vha/zip/master"><img src="https://badgen.net/npm/dt/vha" alt="downloads"></a>

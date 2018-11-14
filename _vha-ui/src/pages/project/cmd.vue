@@ -50,6 +50,12 @@
       </ul>
       <div class="_clear"></div>
 
+      <p class="_noteA">清理：</p>
+      <ul class="_ulbtn">
+        <li class="_buttonB" @click='$store.commit("runCmd", "cordova clean android")'>清理Android构建目录</li>
+      </ul>
+      <div class="_clear"></div>
+
       <p class="_noteA">编译：</p>
       <ul class="_ulbtn">
         <li class="_buttonB" @click='$store.commit("runCmd", "cordova build android")'>Debug编译 Apk</li>

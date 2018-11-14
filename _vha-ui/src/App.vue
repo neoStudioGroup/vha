@@ -102,13 +102,13 @@
       </div>
     </div>
     
-    <UI-stting :visible='visible' @onClose='onClose'></UI-stting>
+    <UI-setting :visible='visible' @onClose='onClose'></UI-setting>
     
   </div>
 </template>
 --------------------------------------------------------------------------------
 <script type="text/ecmascript-6">
-import UIStting from "./components/stting"
+import UISetting from "./components/setting"
 export default {
   name: 'App',
   beforeCreate() {
@@ -126,7 +126,7 @@ export default {
   },
   components: {
     //组件 - 引入或定义
-    UIStting
+    UISetting
   },
   computed: {
     //计算 - 缓存结果,变动时执行

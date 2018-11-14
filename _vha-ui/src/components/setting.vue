@@ -1,9 +1,9 @@
 <style scoped lang="stylus">
-// ._UI-stting
+// ._UI-setting
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="_UI-stting">
+  <div class="_UI-setting">
 
     <a-drawer
       width=400
@@ -15,7 +15,7 @@
     >
       <a-divider orientation="left">系统配置</a-divider>
       
-      <h6 :style="{marginTop:'40px'}">项目目录：</h6>
+      <h6 :style="{marginTop:'40px'}">工程目录：</h6>
       <a-input placeholder="X:\project" v-model="$store.state.config.projectPath"/>
       <h6 :style="{marginTop:'10px', marginLeft:'10px', color:'#bbb'}">项目的管理目录(不能包含中文)</h6>
       
@@ -50,7 +50,7 @@
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">
 export default {
-  name: 'UIstting',
+  name: 'UIsetting',
   props: {
     //父组件参数
     visible: {

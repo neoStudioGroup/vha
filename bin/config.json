@@ -1,6 +1,6 @@
 {
   "servePort": "9876",
-  "choose": "tabs",
-  "projectPath": "F:\\Project\\vha",
-  "openSoftware": "C:\\mysoft\\Microsoft VS Code\\Code.exe"
+  "choose": "",
+  "projectPath": "",
+  "openSoftware": ""
 }

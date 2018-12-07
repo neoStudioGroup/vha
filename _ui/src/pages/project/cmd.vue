@@ -33,6 +33,16 @@
       </ul>
       <div class="_clear"></div>
       
+      <p class="_noteA">优库精选：</p>
+      <ul class="_ulbtn">
+        <!-- <li class="_buttonB" @click='$store.commit("runCmd", "ping baidu.com -t")'>测试</li> -->
+        <li class="_buttonB" @click='$store.commit("runCmd", "npm install -save Axios")'>npm i Axios</li>
+        <li class="_buttonB" @click='$store.commit("runCmd", "npm install -save Axios")'>npm i mock.js</li>
+        <li class="_buttonB" @click='$store.commit("runCmd", "npm install -save vue-dom-portal")'>npm i vue-dom-portal</li>
+        <li class="_buttonB" @click='$store.commit("runCmd", "npm install -save vue-lazyload")'>npm i vue-lazyload</li>
+      </ul>
+      <div class="_clear"></div>
+      
       <p class="_noteA">npm：</p>
       <ul class="_ulbtn">
         <!-- <li class="_buttonB" @click='$store.commit("runCmd", "ping baidu.com -t")'>测试</li> -->

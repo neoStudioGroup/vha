@@ -2,6 +2,7 @@
 'use strict';
 
 module.exports = {
+  debug: false,
   config: {
     "servePort": "9876",
     "choose": "",

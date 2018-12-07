@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
+const glb = require('./global.js');
+
 const fs = require("fs");
 const util = require('util');
 
@@ -13,7 +15,7 @@ const writeFile = util.promisify(fs.writeFile);
 function readConfig () {
   return new Promise (async function (resolve, reject) {
     try {
-      let data = await readFile(__dirname + '\\config.json', 'utf-8')
+      let data = await readFile(__dirname + glb.debug ? '\\config_debug.json' : '\\config.json', 'utf-8')
       resolve (JSON.parse(data))
     } catch (error) {
       // console.log(error + '\n错误：读取配置文件')
@@ -26,7 +28,7 @@ function readConfig () {
 function saveConfig (config) {
   return new Promise (async function (resolve, reject) {
     try {
-      await writeFile(__dirname + '\\config.json', JSON.stringify(config, null, 2))
+      await writeFile(__dirname + glb.debug ? '\\config_debug.json' : '\\config.json', JSON.stringify(config, null, 2))
       resolve ()
     } catch (error) {
       // console.log(error + '\n错误：写入配置文件')

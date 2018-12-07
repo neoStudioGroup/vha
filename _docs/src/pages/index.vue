@@ -10,14 +10,19 @@
 <template>
   <div class="_PG-index">
 
+    Coming...
+    
+    <!-- 开发指南
+      rpx
+      目录结构 -->
+    
     <!-- UI组件-名称 -->
-    <div class="_UI-name">
+    <!-- <div class="_UI-name">
       11111
     </div>
     <router-link to="/aaa">2222</router-link>
-    <i class="fa fa-camera-retro fa-5x"></i>
 
-    <a-button type="primary">Primary</a-button>
+    <a-button type="primary">Primary</a-button> -->
 
   </div>
 </template>

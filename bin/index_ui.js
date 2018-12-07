@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
-const api = require('./_apis.js');
-const glb = require('./_global.js');
+const api = require('./apis.js');
+const glb = require('./global.js');
 const config = require('./config.js')
 
 const os = require('os');
@@ -208,6 +208,6 @@ server.listen(glb.config.servePort)
 
 require('child_process').exec('start http://localhost:' + glb.config.servePort)
 
-console.log('>  运行vue-Hebrid-App GUI构建工具')
+console.log('>  运行vue Hebrid App GUI构建平台')
 console.log('>  打开链接 http://localhost:' + glb.config.servePort)
 console.log('>  Socket Server 等待连接...')

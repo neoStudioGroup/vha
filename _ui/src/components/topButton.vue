@@ -28,7 +28,7 @@
   .ui-t-active
     color #fff
     background-color #2984eb
-    transform scale(0.9)
+    // transform scale(0.9)
     &:hover
       color #fff
       background-color #2984eb

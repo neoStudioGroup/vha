@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-const glb = require('./_global.js');
+const glb = require('./global.js');
 const config = require('./config.js')
 
 const os = require('os');

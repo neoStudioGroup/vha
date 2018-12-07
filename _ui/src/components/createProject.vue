@@ -59,7 +59,7 @@
               </a-card-meta>
             </a-card>
           </a-col>
-          <a-col :span="8" style="padding:10px">
+          <!-- <a-col :span="8" style="padding:10px">
            <a-card
               hoverable
               style="width: 100%;border:none;border-radius:6px;"
@@ -76,7 +76,7 @@
                 </template>
               </a-card-meta>
             </a-card>
-          </a-col>
+          </a-col> -->
         </a-row>
       </a-radio-group>
       

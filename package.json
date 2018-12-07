@@ -1,6 +1,6 @@
 {
   "name": "vha",
-  "version": "0.6.01",
+  "version": "0.6.02",
   "description": "Vue hybrid app Development.",
   "main": "index.js",
   "bin": {

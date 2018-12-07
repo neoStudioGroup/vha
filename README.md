@@ -27,14 +27,11 @@ vha是实现vue混合移动开发的整合方案。使用ui工具可以快速方
 
 临时官方讨论QQ群：928059701
 
-### 当前版本
-
-vha: 0.6.0
-vha-components: 0.8.0
-vha-native: 0.8.0
-vha-appDemo: 1.0.0
-
 ## 传送门
+
+当前版本: 
+
+vha: 0.6.0 | vha-components: 0.8.0 | vha-native: 0.8.0 | vha-appDemo: 1.0.0
 
 [vha官网](https://neostudiogroup.github.io/vha/) | [vha-components文档](https://neostudiogroup.github.io/vha-components/) | [vha-native文档](https://neostudiogroup.github.io/vha-native/)
 

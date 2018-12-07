@@ -29,15 +29,13 @@ vha是实现vue混合移动开发的整合方案。使用ui工具可以快速方
 
 ## 传送门
 
-当前版本: 
-
-vha: 0.6.0 | vha-components: 0.8.0 | vha-native: 0.8.0 | vha-appDemo: 1.0.0
-
 [vha官网](https://neostudiogroup.github.io/vha/) | [vha-components文档](https://neostudiogroup.github.io/vha-components/) | [vha-native文档](https://neostudiogroup.github.io/vha-native/)
 
 [vha(Github)](https://github.com/neoStudioGroup/vha) | [vha-components(Github)](https://github.com/neoStudioGroup/vha-components) | [vha-native(Github)](https://github.com/neoStudioGroup/vha-native) | [vha-appDemo(Github)](https://github.com/neoStudioGroup/vha-appDemo)
 
 [vha-components (在线演示)](https://neostudiogroup.github.io/vha-appDemo/#/) | [vha-appDemo (Apk文件)](https://github.com/neoStudioGroup/vha-appDemo/releases/download/1.0.0/vha-appDemo.apk)
+
+当前版本：vha: 0.6.0 | vha-components: 0.8.0 | vha-native: 0.8.0 | vha-appDemo: 1.0.0
 
 ## 技术栈
 

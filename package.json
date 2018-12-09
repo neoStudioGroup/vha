@@ -1,12 +1,14 @@
 {
   "name": "vha",
-  "version": "0.6.03",
+  "version": "0.6.24",
   "description": "Vue hybrid app Development.",
   "main": "index.js",
   "bin": {
     "vha": "./bin/index.js"
   },
+  "files": ["/ui", "/bin", "LICENSE", "package.json", "README.md"],
   "scripts": {
+    "build:ui": "cd _ui && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vuepress dev _docsdata",
     "docs:build": "vuepress build _docsdata",

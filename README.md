@@ -43,6 +43,8 @@ VueCli3.0 + VueRouter + Vuex + Stylu + vha-components + vha-native(Cordova)
 
 ## 开始
 
+准备工作：安装nodejs、git
+
 ```shell
 npm install vha cordova -g
 ```

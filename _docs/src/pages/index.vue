@@ -10,7 +10,7 @@
 <template>
   <div class="_PG-index">
 
-    Coming...
+    Coming soon...
     
     <!-- 开发指南
       rpx

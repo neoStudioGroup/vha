@@ -2,7 +2,7 @@ const path = require('path')
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
 
 module.exports = {
-  baseUrl: 'vha-native',
+  baseUrl: 'vha',
   outputDir: path.join(__dirname, '..') + '\\docs',
   productionSourceMap: false,
   
@@ -15,17 +15,22 @@ module.exports = {
           '/aaa', 
           '/bbb' 
         ],
-        postProcessHtml: function (context) {
-          var titles = {
+        postProcess(context) {
+          let titles = {
             '/': 'Home',
             '/aaa': 'Our Story'
+          };
+          let temp_title = titles[context.route]
+          if (!temp_title) {
+            temp_title = context.route.replace(/\//g, '').replace(/-/g, ' ') + ' 静态文档博客'
           }
-          return context.html.replace(
+          context.html = context.html.replace(
             /<title>[^<]*<\/title>/i,
-            '<title>' + titles[context.route] + '</title>'
+            `<title>${temp_title}</title>`
           )
+          return context
         }
       })
-    ]  
-  }  
+    ]
+  }
 }

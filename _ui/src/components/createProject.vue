@@ -19,7 +19,7 @@
         
         <a-radio-group v-model="formValue" style="margin:10px auto 20px">
           <a-radio-button value="oschina">oschina</a-radio-button>
-          <a-radio-button value="git">git</a-radio-button>
+          <a-radio-button value="github">github</a-radio-button>
         </a-radio-group>
         
         <a-row>

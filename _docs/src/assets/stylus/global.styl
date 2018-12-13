@@ -16,7 +16,87 @@
   // box-sizing: border-box !important;
 }
 
-// ------------------------- 公共属性 -------------------------
+
+._pa {position: absolute}
+._pr {position: relative}
+._nomg {margin: 0 !important}
+._nopd {padding: 0 !important}
+._nobd {border: 0 !important}
+
+/* ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ 盒子常用 ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ */
+/* 盒子 */
+._df {display:flex;}
+/* 内联盒子 */
+._dif {display:inline-flex;}
+/* 轴线 - 水平方向 (默认) */
+._fdr {flex-direction:row;}
+/* 轴线 - 垂直方向 */
+._fdc {flex-direction:column;}
+
+/* 轴线 - 对齐-顶部 (默认) */
+._aifs {align-items:flex-start;}
+/* 轴线 - 对齐-居中 */
+._aic {align-items:center;}
+/* 轴线 - 对齐-底部 */
+._aife {align-items:flex-end;}
+
+/* 内容 - 分布-顶部 (默认) */
+._jcfs {justify-content:flex-start;}
+/* 内容 - 分布-底部 */
+._jcfe {justify-content:flex-end;}
+/* 内容 - 分布-紧凑 #居中时需注意 */
+._jcc {justify-content:center;}
+/* 内容 - 分布-平均 */
+._jssa {justify-content:space-around;}
+/* 内容 - 分布-贴边-平均 */
+._jcsb {justify-content:space-between;}
+
+/* 多行 */
+._fww {flex-wrap:wrap;}
+/* 多行 + 分布-拉伸 */
+._acs {align-content:stretch;}
+/* 多行 + 分布-顶部 */
+._acfs {align-content:flex-start;}
+/* 多行 + 分布-底部 */
+._acfe {align-content:flex-end;}
+/* 多行 + 分布-紧凑 */
+._acc {align-content:center;}
+/* 多行 + 分布-平均 */
+._acsa {align-content:space-around;}
+/* 多行 + 分布-贴边-平均 */
+._acsb {align-content:space-between;}
+
+/* 子元素 - 水平居中 */
+._fm0a {margin:0 auto;}
+/* 子元素 - 居右 */
+._fmla {margin-left:auto;}
+/* 子元素 - 垂直居中 */
+._fma0 {margin:auto 0;}
+/* 子元素 - 居底 */
+._fmta {margin-top:auto;}
+/* 子元素 - 绝对居中 */
+._fma {margin:auto;}
+/* ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ 盒子常用 ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ */
+
+// 清除<a>标签属性
+a
+  text-decoration none !important
+  &:hover
+    color #000 //鼠标划过链接
+  &:active
+    color #000 //已选中的链接
+  &:visited
+    color #000 //已访问的链接
+  &:link
+    color #000 //未访问的链接
+
+
+._container
+  width 1140px
+  margin 0 auto
+
+
+// ------------------------------------------------------------------------------------------- 公共属性 -------------------------
 
 ._cl-000 {color: #000}
 ._cl-f63f3f {color: #f63f3f !important}
@@ -47,79 +127,7 @@
 
 /*强制不换行*/
 ._wn {white-space: nowrap}
-/*盒子*/
-._df {display: flex}
-._dif {display: inline-flex}
-/*内联盒子*/
-._dif {display: inline-flex}
-/*垂直方向*/
-._fdc {flex-direction: column}
-/*盒子水平自动宽度*/
-._flexXauto {
-  max-width 100%
-  overflow-x auto
-  flex 1
-}
-/*盒子垂直自动高度*/
-._flexYauto {
-  max-height 100%
-  overflow-y auto
-  flex 1
-}
-/*平均分布*/
-._js {justify-content: space-around}
-/*内容垂直对齐*/
-._ac {align-items: center}
-/*内容水平对齐*/
-._jc {justify-content: center}
-/*子元素水平对齐*/
-._m0a {margin: 0 auto}
-
-/*内容垂直分布居中*/
-._dfjcsb{
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-}
-
-/*内容垂直对齐*/
-._dfac{
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-}
-
-/*内容水平对齐*/
-._dfjc{
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-/*垂直水平居中*/
-._dfacjc{
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-/*垂直水平居中2*/
-._dfacjcb{
-  margin: auto
-}
-
-/*居底*/
-._dfai{
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: flex-end;
-  align-items: flex-end;
-}
-
+  
 /*超出隐藏*/
 ._oh{
   overflow: hidden;

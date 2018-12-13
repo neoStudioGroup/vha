@@ -4,9 +4,9 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 
-import Antd from 'ant-design-vue'
-import 'ant-design-vue/dist/antd.css'
-Vue.use(Antd)
+// import Antd from 'ant-design-vue'
+// import 'ant-design-vue/dist/antd.css'
+// Vue.use(Antd)
 
 import axios from 'axios'
 Vue.prototype.$ajax = axios

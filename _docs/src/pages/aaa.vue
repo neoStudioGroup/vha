@@ -1,17 +1,17 @@
 <style lang="stylus">
-._PG-aaa
+.PG-aaa
 
   // UI组件-名称
-  ._UI-name
+  .UI-name
     background-color white
 
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div class="_PG-aaa">
+  <div class="PG-aaa">
 
     <!-- UI组件-名称 -->
-    <div class="_UI-name">
+    <div class="UI-name">
       222222
     </div>
     <router-link to="/">1111</router-link>
@@ -22,19 +22,6 @@
 <script type="text/ecmascript-6">
 export default {
   name: 'PGaaa',
-  metaInfo: {
-    title: '我是一个title',
-    meta: [
-      {
-        name: 'keywords',
-        content: '关键字1,关键字2,关键字3'
-      },
-      {
-        name: 'description',
-        content: '这是一段网页的描述'
-      }
-    ]
-  },
   data() {
     //动态数据
     return {

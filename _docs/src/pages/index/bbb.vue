@@ -2,7 +2,7 @@
 .index_PG-bbb
 
   // UI组件-名称
-  ._UI-name
+  .UI-name
     background-color red
 
 </style>
@@ -11,7 +11,7 @@
   <div class="index_PG-bbb">
 
     <!-- UI组件-名称 -->
-    <div class="_UI-name">
+    <div class="UI-name">
       333333
     </div>
 

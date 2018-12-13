@@ -1,14 +1,14 @@
 <style lang="stylus">
 @import "./assets/stylus/reset.styl"
-@import "./assets/stylus/font-awesome.styl"
 @import "./assets/stylus/global.styl"
-// #app
+#app
+  color #444
 </style>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <template>
-  <div id="app">
+  <main id="app">
     <router-view></router-view>
-  </div>
+  </main>
 </template>
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 <script type="text/ecmascript-6">

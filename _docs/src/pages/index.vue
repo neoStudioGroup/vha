@@ -81,7 +81,6 @@
       <!-- <h1>设计理念：把基础组件做到极致，快速构建移动端定制化ui界面。</h1> -->
       <h1>将基础组件做到极致</h1>
       <h1>为快速构建移动端"定制化"ui界面而生</h1>
-      <!-- <h3>为快速构建移动端"定制化"ui界面而生</h3> -->
       <!-- <h3>如果你对移动端ui有"定制化"需求我推荐你使用它</h3> -->
       <!-- <h3>如果你对移动端ui有"快速构建"需求我也推荐你使用它</h3> -->
       <a class="ui-b-button" href="https://neostudiogroup.com/vha-components/GettingStarted" target="_blank">快速开始</a>
@@ -124,22 +123,6 @@
         <a href="https://github.com/neoStudioGroup/vha" target="_blank"><img src="../assets/images/github.png"></a>
       </div>
     </div>
-    
-    <!-- Coming soon... -->
-    
-    <!-- 开发指南
-      rpx
-      目录结构 -->
-    
-    <!-- 快速构建定制化移动端hibrid app -->
-    
-    <!-- UI组件-名称 -->
-    <!-- <div class="UI-name">
-      11111
-    </div>
-    <router-link to="/aaa">2222</router-link>
-
-    <a-button type="primary">Primary</a-button> -->
 
   </div>
 </template>

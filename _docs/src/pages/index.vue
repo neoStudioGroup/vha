@@ -59,13 +59,13 @@
       </div>
       <ul class="ui-nav _df _nomg">
         <li>
-          <a href="https://neostudiogroup.com/vha-components/GettingStarted">指南</a>
+          <a href="https://neostudiogroup.com/vha-components">指南</a>
         </li>
         <li>
           <a href="https://neostudiogroup.com/vha-components/routerView">组件</a>
         </li>
         <li>
-          <a href="https://neostudiogroup.com/vha-native/Splashscreen">接口</a>
+          <a href="https://neostudiogroup.com/vha-native">接口</a>
         </li>
         <!-- <li>
           <a href="#">支持vha</a>
@@ -83,7 +83,7 @@
       <h1>为快速构建移动端"定制化"ui界面而生</h1>
       <!-- <h3>如果你对移动端ui有"定制化"需求我推荐你使用它</h3> -->
       <!-- <h3>如果你对移动端ui有"快速构建"需求我也推荐你使用它</h3> -->
-      <a class="ui-b-button" href="https://neostudiogroup.com/vha-components/GettingStarted" target="_blank">快速开始</a>
+      <a class="ui-b-button" href="https://neostudiogroup.com/vha-components" target="_blank">快速开始</a>
     </div>
     <!-- <div class="UI-features">
       rpx
